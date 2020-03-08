@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on </title>
+    <link>https://tomoris.github.io/tools/</link>
+    <description>Recent content in Tools on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>us-en</language>
+    <lastBuildDate>Wed, 23 Oct 2019 21:27:36 +0900</lastBuildDate>
+    
+	<atom:link href="https://tomoris.github.io/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PYHSCRF</title>
+      <link>https://tomoris.github.io/tools/pyhscrf.ja/</link>
+      <pubDate>Wed, 23 Oct 2019 21:27:36 +0900</pubDate>
+      
+      <guid>https://tomoris.github.io/tools/pyhscrf.ja/</guid>
+      <description>PYHSCRF   PYHSCRF English
+ 作成中です。 PYHSCRFは、少量のアノテーションデータから低コストで固有表現認識器(NER)を学習します。  特徴 ダウンロード・インストール プログラム仕様  解析：手法の詳細, 入出力の形式, API  学習：モデル学習, 入手可能なモデル  開発情報  特徴  PYHSCRFには以下の機能が揃っています。：  フルアノテーションからのNEタガーの構築：通常の学習手法と同様に、すべての単語にBIESOタグのいずれかが付与されているデータからの学習 部分アノテーションからのNEタガーの構築：部分的にBIESOタグが付与されているデータ、もしくは一つの単語に対して複数のタグが付与されているデータからの学習 NE辞書からのNEタガーの構築：少量のNE辞書と大量の生テキストからの学習   素性として、スパースな素性、BiLSTM、BERTを用いることができます。  また、詳しくは以下の論文をご参照ください。  Suzushi Tomori，Yugo Murawaki, Shinsuke Mori．
+A Hybrid Generative/Discriminative Model for Rapid Prototyping of Domain-Specific Named Entity Recognition
+The 20th International Conference on Intelligent Text Processing and Computational Linguistics (CICLing 2019), La Rochelle, France, April 2019  ダウンロード・インストール ダウンロード  最新のバージョン： PYHSCRF (コード)  PYHSCRFのバージョン.</description>
+    </item>
+    
+  </channel>
+</rss>

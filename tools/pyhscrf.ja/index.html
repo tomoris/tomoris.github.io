@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="us-en">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PYHSCRF</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: blue;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://tomoris.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto%20Sans%20JP">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.59.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">PYHSCRF</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="https://tomoris.github.io/">Home</a></li>
+                            
+                                <li><a href="https://tomoris.github.io/about/">About</a></li>
+                            
+                                <li><a href="https://tomoris.github.io/publications/">Publications</a></li>
+                            
+                        </ul>
+                    
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>PYHSCRF</h2>
+        <h5></h5>
+        
+
+    </div>
+
+    <div align="start" class="content">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>PYHSCRF</title>
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <meta name="description" content="少量のアノテーションデータからドメイン特有のNERモデルの構築、モデル学習が容易であるため、ドメイン適応を簡単にできます。" />
+    <meta name="keywords" content="オープンソース" />
+</head>
+
+<body>
+
+    <h1>PYHSCRF</h1>
+
+    <p><a href="../pyhscrf/">English</a></p>
+
+    <p>
+        作成中です。
+        <a
+            href="https://github.com/tomoris/rapid_prototyping_seq_tagger">PYHSCRF</a>は、少量のアノテーションデータから低コストで固有表現認識器(NER)を学習します。
+    </p>
+
+    <ul>
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#download">ダウンロード・インストール</a></li>
+        <li><a href="#documentation">プログラム仕様</a></li>
+        <ul>
+            <li>解析：<a href="method-ja.html">手法の詳細</a>, <a href="io-ja.html">入出力の形式</a>, <a href="api-ja.html">API</a>
+            </li>
+            <li>学習：<a href="train-ja.html">モデル学習</a>, <a href="model-ja.html">入手可能なモデル</a></li>
+        </ul>
+        <li><a href="#development">開発情報</a></li>
+    </ul>
+
+
+    <a name="features">
+        <h2>特徴</h2>
+
+        <p>
+            PYHSCRFには以下の機能が揃っています。：
+        </p>
+
+        <ul>
+            <li><b>フルアノテーションからのNEタガーの構築：</b>通常の学習手法と同様に、すべての単語にBIESOタグのいずれかが付与されているデータからの学習</li>
+            <li><b>部分アノテーションからのNEタガーの構築：</b>部分的にBIESOタグが付与されているデータ、もしくは一つの単語に対して複数のタグが付与されているデータからの学習</li>
+            <li><b>NE辞書からのNEタガーの構築：</b>少量のNE辞書と大量の生テキストからの学習</li>
+        </ul>
+
+        <p>
+            素性として、スパースな素性、BiLSTM、BERTを用いることができます。
+        </p>
+
+        <p>
+            また、詳しくは以下の論文をご参照ください。
+        </p>
+
+        <ul>
+            <li>Suzushi Tomori，Yugo Murawaki, Shinsuke Mori．<br /><a
+                    href="https://easychair.org/publications/preprint/LlQj">A Hybrid Generative/Discriminative Model
+                    for Rapid Prototyping of Domain-Specific Named Entity Recognition</a><br />The 20th International
+                Conference on Intelligent Text Processing and Computational Linguistics (CICLing 2019), La Rochelle,
+                France, April 2019</li>
+        </ul>
+
+
+        <a name="download">
+            <h2>ダウンロード・インストール</h2>
+
+            <h3>ダウンロード</h3>
+
+            <p>
+                <b>最新のバージョン：</b>
+                <a href="https://github.com/tomoris/rapid_prototyping_seq_tagger">PYHSCRF (コード)</a>
+            </p>
+
+            <p>
+                PYHSCRFのバージョン...以降には...。
+            </p>
+
+            <p>
+                <b>最新コード（未リリース）：</b> <a href="" target="_blank">@github</a><br />
+                <b>過去のバージョン：</b>
+                <a href="">0.0.x</a>
+            </p>
+
+            <p>
+                ソースコードは<a href="http://sourceforge.jp/projects/opensource/wiki/licenses%2FApache_License_2.0"
+                    target="_blank">Apache License Version 2</a>の条件に基づいて頒布されています。
+            </p>
+
+            <h3>インストール</h3>
+
+            <p>
+                Linuxで動作確認をしています。
+                インストールをするために、最新版をダウンロードしてから、...
+            </p>
+
+            <pre>
+git clone https://github.com/tomoris/rapid_prototyping_seq_tagger.git
+python setup.py build
+python rapid_prototyping_seq_tagger/main.py --help
+</pre>
+
+            <p>
+                これでヘルプが表示されればプログラムは正しく動作しています。
+            </p>
+
+            <a name="documentation">
+                <h2>プログラム仕様</h2>
+
+                <h3>モデル学習</h3>
+
+                <p>
+                    まず、以下の形式の設定ファイルを用意します：
+                </p>
+
+                <pre>
+...
+</pre>
+
+                <p>
+                    このファイルが<b>config.py</b>という名前の場合、このようにモデルを学習ができます。
+                </p>
+
+                <pre>
+python rapid_prototyping_seq_tagger/main.py --mode train --config sample/config.py
+</pre>
+
+                <p>
+                    学習されたモデルを出力します。
+                </p>
+
+                <h3>各プログラムの使い方</h3>
+
+                <h4>PYHSCRF</h4>
+
+                <p><b>PYHSCRF</b>はモデルが学習モードとテストモードがあります。</p>
+
+                <pre>
+オプション：
+--mode {train, predict}    学習モードかテストモードの選択
+--config CONFIG       設定ファイルのパス
+</pre>
+
+
+                <a name="development">
+                    <h2>開発情報</h2>
+
+                    <h3>開発チーム</h3>
+
+                    <ul>
+                        <li><a href="">友利 涼</a> (プロジェクトリーダー、プログラム全体の開発)</li>
+                        <li><a href="http://www.ar.media.kyoto-u.ac.jp/members/mori/">森 信介</a> (指導、パワーユーザー)</li>
+                    </ul>
+
+                    <p>何か気になる点がありましたら、お気軽に？？？までご連絡ください。</p>
+
+
+                    <h3>バージョン歴</h3>
+
+                    <h4>改良予定</h4>
+
+                    <ul>
+                        <li>？？？</li>
+                    </ul>
+
+                    <h4>Version 0.x.x (20xx年xx月xx日)</h4>
+
+                    <ul>
+                        <li>？？？</li>
+                    </ul>
+
+                    <p>
+                        <i>Last Modified: 20xx-xx-xx by xxx</i>
+                    </p>
+
+</body>
+
+</html></div>
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
