@@ -1,0 +1,977 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-hkbrpulz><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="計画言語の語を、意味・品詞・借用元の英単語から引ける辞書。"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>辞書 | Artificial Language</title><style>:root{--bg:#fff;--bg-subtle:#f6f7f9;--fg:#1f2328;--fg-muted:#59636e;--border:#d8dee4;--accent:#3b5bdb;--accent-subtle:#edf2ff;--code-bg:#f6f8fa;color-scheme:light}@media (prefers-color-scheme:dark){:root{--bg:#16181d;--bg-subtle:#1e2128;--fg:#e3e6eb;--fg-muted:#9aa3ae;--border:#343a44;--accent:#8ca2ff;--accent-subtle:#222a45;--code-bg:#1e2128;color-scheme:dark}.astro-code,.astro-code span{color:var(--shiki-dark)!important;background-color:var(--shiki-dark-bg)!important}}*,:before,:after{box-sizing:border-box}body{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%;margin:0;font-family:system-ui,-apple-system,Hiragino Sans,Hiragino Kaku Gothic ProN,Noto Sans JP,Yu Gothic,Meiryo,sans-serif;font-size:16px;line-height:1.85}a{color:var(--accent)}.container{max-width:760px;margin:0 auto;padding:0 16px}.prose{overflow-wrap:anywhere}.prose h1{margin:0 0 32px;font-size:1.85rem;line-height:1.4}.prose h2{border-bottom:1px solid var(--border);margin:48px 0 16px;padding-bottom:6px;font-size:1.4rem;line-height:1.4}.prose h3{margin:32px 0 12px;font-size:1.15rem}.prose p,.prose ul,.prose ol{margin:0 0 16px}.prose li>ul,.prose li>ol{margin-bottom:0}.prose code{background:var(--code-bg);border-radius:4px;padding:.15em .35em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em}.prose pre{border-radius:6px;margin:0 0 16px;padding:14px 16px;line-height:1.6;overflow-x:auto}.prose pre code{background:0 0;padding:0}.prose blockquote{border-left:4px solid var(--border);color:var(--fg-muted);margin:0 0 16px;padding:0 16px}.prose table{border-collapse:collapse;max-width:100%;margin:0 0 16px;font-size:.9rem;line-height:1.6;display:block;overflow-x:auto}.prose th,.prose td{border:1px solid var(--border);vertical-align:top;padding:6px 12px}.prose th{background:var(--bg-subtle)}.prose a.editor-link,a.editor-link{vertical-align:.1em;border-radius:4px;margin-left:.3em;padding:0 .3em;font-size:.75em;text-decoration:none}.prose a.editor-link:hover,a.editor-link:hover{background:var(--accent-subtle)}.prose .katex-display{padding:4px 0;overflow:auto hidden}.prose .footnotes{color:var(--fg-muted);margin-top:48px;font-size:.875rem}.prose .footnotes h2{border:none;font-size:1rem}.site-header[data-astro-cid-hkbrpulz]{border-bottom:1px solid var(--border)}.header-inner[data-astro-cid-hkbrpulz]{justify-content:space-between;align-items:center;gap:16px;height:56px;display:flex}.site-title[data-astro-cid-hkbrpulz]{color:var(--fg);font-weight:700;text-decoration:none}nav[data-astro-cid-hkbrpulz]{gap:20px;display:flex}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]:hover{color:var(--accent)}main[data-astro-cid-hkbrpulz]{padding-top:32px;padding-bottom:64px}.site-footer[data-astro-cid-hkbrpulz]{border-top:1px solid var(--border);padding:24px 0;font-size:.875rem}.site-footer[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}
+.lang[data-astro-cid-d3rsstu7]{background:var(--code-bg);border-radius:4px;padding:.1em .35em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em}a[data-astro-cid-d3rsstu7]{text-decoration:none}a[data-astro-cid-d3rsstu7]:hover{text-decoration:underline}h1[data-astro-cid-futgqraz]{margin:0 0 8px;font-size:1.85rem;line-height:1.4}.intro[data-astro-cid-futgqraz]{color:var(--fg-muted);margin:0 0 16px;font-size:.9rem}.controls[data-astro-cid-futgqraz]{z-index:1;background:var(--bg);border-bottom:1px solid var(--border);flex-wrap:wrap;align-items:center;gap:8px 12px;padding:12px 0;display:flex;position:sticky;top:0}input[data-astro-cid-futgqraz],select[data-astro-cid-futgqraz]{border:1px solid var(--border);background:var(--bg);color:var(--fg);font:inherit;border-radius:6px;padding:6px 10px;font-size:.95rem}input[data-astro-cid-futgqraz]{flex:220px;min-width:0}input[data-astro-cid-futgqraz]:focus,select[data-astro-cid-futgqraz]:focus{outline:2px solid var(--accent);outline-offset:-1px}.count[data-astro-cid-futgqraz]{color:var(--fg-muted);font-size:.875rem}.empty[data-astro-cid-futgqraz]{color:var(--fg-muted)}.entry[data-astro-cid-futgqraz]{border-bottom:1px solid var(--border);overflow-wrap:anywhere;padding:16px 0;scroll-margin-top:80px}.entry[data-astro-cid-futgqraz][hidden]{display:none}.entry[data-astro-cid-futgqraz]:target{background:var(--accent-subtle);box-shadow:0 0 0 8px var(--accent-subtle)}.entry-head[data-astro-cid-futgqraz]{flex-wrap:wrap;align-items:baseline;gap:4px 12px;display:flex}.headword[data-astro-cid-futgqraz]{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.2rem}.headword[data-astro-cid-futgqraz] a[data-astro-cid-futgqraz]{color:var(--fg);text-decoration:none}.pos[data-astro-cid-futgqraz]{background:rgb(var(--pos-color,130 130 130) / .25);border-radius:999px;padding:0 8px;font-size:.8rem}.origin[data-astro-cid-futgqraz]{color:var(--fg-muted);font-size:.85rem}.description[data-astro-cid-futgqraz]{margin:6px 0 0}.details[data-astro-cid-futgqraz]{grid-template-columns:max-content 1fr;gap:4px 12px;margin:8px 0 0;font-size:.9rem;display:grid}.details[data-astro-cid-futgqraz] dt[data-astro-cid-futgqraz]{color:var(--fg-muted)}.details[data-astro-cid-futgqraz] dd[data-astro-cid-futgqraz]{margin:0}
+</style></head><body data-astro-cid-hkbrpulz><header class="site-header" data-astro-cid-hkbrpulz><div class="container header-inner" data-astro-cid-hkbrpulz><a class="site-title" href="/" data-astro-cid-hkbrpulz>Artificial Language</a><nav data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>記事</a><a href="/dictionary/" data-astro-cid-hkbrpulz>辞書</a><a href="/editor/" data-astro-cid-hkbrpulz>エディタ</a></nav></div></header><main class="container" data-astro-cid-hkbrpulz><h1 data-astro-cid-futgqraz>辞書</h1><p class="intro" data-astro-cid-futgqraz>234 語。語・日本語の意味・借用元の英単語で検索できます。例文や定義の中の語を選ぶと、その語の項目に移動します。▶ でその文をエディタで開けます。</p><div class="controls" data-astro-cid-futgqraz><input id="dict-query" type="search" placeholder="語・意味・英単語で検索" aria-label="検索" autocomplete="off" data-astro-cid-futgqraz><select id="dict-pos" aria-label="品詞" data-astro-cid-futgqraz><option value="" data-astro-cid-futgqraz>すべての品詞</option><option value="BinaryPredicate" data-astro-cid-futgqraz>述語 (154)</option><option value="Argument" data-astro-cid-futgqraz>項 (14)</option><option value="CaseLabel" data-astro-cid-futgqraz>格標識 (14)</option><option value="ArgumentRetriever" data-astro-cid-futgqraz>項抽出 (3)</option><option value="Quantifier" data-astro-cid-futgqraz>量化詞 (4)</option><option value="Determiner" data-astro-cid-futgqraz>限定詞 (3)</option><option value="Tense" data-astro-cid-futgqraz>テンス (3)</option><option value="Aspect" data-astro-cid-futgqraz>アスペクト (7)</option><option value="ModalityBase" data-astro-cid-futgqraz>モダリティ (3)</option><option value="Negation" data-astro-cid-futgqraz>否定 (1)</option><option value="TenseNegation" data-astro-cid-futgqraz>テンスの否定 (1)</option><option value="AspectNegation" data-astro-cid-futgqraz>アスペクトの否定 (1)</option><option value="ModalityNegation" data-astro-cid-futgqraz>モダリティの否定 (1)</option><option value="PhraseOperator" data-astro-cid-futgqraz>述語・項の演算子 (3)</option><option value="MtaEventOperator" data-astro-cid-futgqraz>命題の演算子 (3)</option><option value="PostBinaryPredicatePhraseModifier" data-astro-cid-futgqraz>述語修飾句の前置詞 (1)</option><option value="PostArgumentPhraseModifier" data-astro-cid-futgqraz>項修飾句の前置詞 (1)</option><option value="MtaEventToArgumentPhraseConverter" data-astro-cid-futgqraz>節の開始マーカー (1)</option><option value="MtaEventToArgumentPhraseConverterEnd" data-astro-cid-futgqraz>節の終了マーカー (1)</option><option value="ConnectiveHead" data-astro-cid-futgqraz>接続詞 (11)</option><option value="TypeOverride" data-astro-cid-futgqraz>型の上書き (1)</option><option value="InterrogativeMarker" data-astro-cid-futgqraz>疑問文マーカー (1)</option><option value="UniversalMarker" data-astro-cid-futgqraz>全称量化マーカー (1)</option><option value="Eos" data-astro-cid-futgqraz>文の区切り (1)</option></select><span id="dict-count" class="count" aria-live="polite" data-astro-cid-futgqraz>234 語</span></div><p id="dict-empty" class="empty" hidden data-astro-cid-futgqraz>見つかりませんでした。</p><article class="entry" id="w-ba" data-pos="Argument" data-search="ba
+項
+あなた
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ba" data-astro-cid-futgqraz>ba</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>あなた</p></article><article class="entry" id="w-badokatora" data-pos="BinaryPredicate" data-search="badokatora
+述語
+x1はx2を医者と定義する。
+doctor
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-badokatora" data-astro-cid-futgqraz>badokatora</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: doctor</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を医者と定義する。</p></article><article class="entry" id="w-bahumana" data-pos="BinaryPredicate" data-search="bahumana
+述語
+x1はx2を人と定義する。
+human
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bahumana" data-astro-cid-futgqraz>bahumana</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: human</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を人と定義する。</p></article><article class="entry" id="w-be" data-pos="Argument" data-search="be
+項
+それ
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-be" data-astro-cid-futgqraz>be</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>それ</p></article><article class="entry" id="w-bidoga" data-pos="BinaryPredicate" data-search="bidoga
+述語
+x1はx2を犬と定義する。
+dog
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bidoga" data-astro-cid-futgqraz>bidoga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: dog</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を犬と定義する。</p></article><article class="entry" id="w-bihemare" data-pos="BinaryPredicate" data-search="bihemare
+述語
+x1はx2を生物学的に雌(めす)と定義する。 `bimare`(雄)と対になる語。性自認上の性別は`gumare`/`guhemare`を使う。
+female
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bihemare" data-astro-cid-futgqraz>bihemare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: female</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を生物学的に雌(メス)と定義する。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-bimare" data-astro-cid-d3rsstu7>bimare</a></code>(雄)と対になる語。性自認上の性別は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-gumare" data-astro-cid-d3rsstu7>gumare</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-guhemare" data-astro-cid-d3rsstu7>guhemare</a></code>を使う。</p></article><article class="entry" id="w-bimare" data-pos="BinaryPredicate" data-search="bimare
+述語
+x1はx2を生物学的に雄(おす)と定義する。 `bihemare`(雌)と対になる語。性自認上の性別は`gumare`/`guhemare`を使う。
+male
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bimare" data-astro-cid-futgqraz>bimare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: male</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を生物学的に雄(オス)と定義する。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-bihemare" data-astro-cid-d3rsstu7>bihemare</a></code>(雌)と対になる語。性自認上の性別は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-gumare" data-astro-cid-d3rsstu7>gumare</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-guhemare" data-astro-cid-d3rsstu7>guhemare</a></code>を使う。</p></article><article class="entry" id="w-bo" data-pos="Determiner" data-search="bo
+限定詞
+限定詞:その。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bo" data-astro-cid-futgqraz>bo</a></h2><span class="pos" style="--pos-color: 170 120 60" data-astro-cid-futgqraz>限定詞</span></header><p class="description" data-astro-cid-futgqraz>限定詞:その。</p></article><article class="entry" id="w-bu" data-pos="Argument" data-search="bu
+項
+あなたたち
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-bu" data-astro-cid-futgqraz>bu</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>あなたたち</p></article><article class="entry" id="w-dabara" data-pos="BinaryPredicate" data-search="dabara
+述語
+x1はx2をぼーると定義する。
+ball
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dabara" data-astro-cid-futgqraz>dabara</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: ball</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をボールと定義する。</p></article><article class="entry" id="w-dahone" data-pos="BinaryPredicate" data-search="dahone
+述語
+x1はx2を電話と定義する。
+phone
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dahone" data-astro-cid-futgqraz>dahone</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: phone</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を電話と定義する。</p></article><article class="entry" id="w-dakara" data-pos="BinaryPredicate" data-search="dakara
+述語
+x1はx2を車と定義する。
+car
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dakara" data-astro-cid-futgqraz>dakara</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: car</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を車と定義する。</p></article><article class="entry" id="w-dapapera" data-pos="BinaryPredicate" data-search="dapapera
+述語
+x1はx2を紙と定義する。
+paper
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dapapera" data-astro-cid-futgqraz>dapapera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: paper</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を紙と定義する。</p></article><article class="entry" id="w-dasinaga" data-pos="BinaryPredicate" data-search="dasinaga
+述語
+x1はx2をものと定義する。 `disinaga`/`dusinaga`と近義語。「何もない」のような強調に`hobi`(or)で並べて使う用例がある。
+thing
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dasinaga" data-astro-cid-futgqraz>dasinaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: thing</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をものと定義する。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-disinaga" data-astro-cid-d3rsstu7>disinaga</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-dusinaga" data-astro-cid-d3rsstu7>dusinaga</a></code>と近義語。「何もない」のような強調に<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hobi" data-astro-cid-d3rsstu7>hobi</a></code>(or)で並べて使う用例がある。</p></article><article class="entry" id="w-databare" data-pos="BinaryPredicate" data-search="databare
+述語
+x1はx2をてーぶると定義する。
+table
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-databare" data-astro-cid-futgqraz>databare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: table</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をテーブルと定義する。</p></article><article class="entry" id="w-daterebisona" data-pos="BinaryPredicate" data-search="daterebisona
+述語
+x1はx2をてれびと定義する。
+television
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-daterebisona" data-astro-cid-futgqraz>daterebisona</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: television</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をテレビと定義する。</p></article><article class="entry" id="w-di" data-pos="PostBinaryPredicatePhraseModifier" data-search="di
+述語修飾句の前置詞
+述語修飾句の前置詞。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-di" data-astro-cid-futgqraz>di</a></h2><span class="pos" style="--pos-color: 60 60 180" data-astro-cid-futgqraz>述語修飾句の前置詞</span></header><p class="description" data-astro-cid-futgqraz>述語修飾句の前置詞。</p></article><article class="entry" id="w-dibeda" data-pos="BinaryPredicate" data-search="dibeda
+述語
+x1はx2をべっどと定義する。
+bed
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dibeda" data-astro-cid-futgqraz>dibeda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: bed</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をベッドと定義する。</p></article><article class="entry" id="w-didora" data-pos="BinaryPredicate" data-search="didora
+述語
+x1はx2をどあと定義する。
+door
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-didora" data-astro-cid-futgqraz>didora</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: door</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をドアと定義する。</p></article><article class="entry" id="w-dihohise" data-pos="BinaryPredicate" data-search="dihohise
+述語
+x1はx2を事務所/おふぃすと定義する。
+office
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dihohise" data-astro-cid-futgqraz>dihohise</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: office</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を事務所/オフィスと定義する。</p></article><article class="entry" id="w-dihome" data-pos="BinaryPredicate" data-search="dihome
+述語
+x1はx2を家(建物)と定義する。 概念上の故郷を表す`rahome`とは別語。
+home
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dihome" data-astro-cid-futgqraz>dihome</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: home</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を家(建物)と定義する。 概念上の故郷を表す<code class="lang" data-astro-cid-d3rsstu7><a href="#w-rahome" data-astro-cid-d3rsstu7>rahome</a></code>とは別語。</p></article><article class="entry" id="w-diroma" data-pos="BinaryPredicate" data-search="diroma
+述語
+x1はx2を部屋と定義する。
+room
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-diroma" data-astro-cid-futgqraz>diroma</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: room</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を部屋と定義する。</p></article><article class="entry" id="w-disakora" data-pos="BinaryPredicate" data-search="disakora
+述語
+x1はx2を学校と定義する。
+school
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-disakora" data-astro-cid-futgqraz>disakora</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: school</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を学校と定義する。</p></article><article class="entry" id="w-disinaga" data-pos="BinaryPredicate" data-search="disinaga
+述語
+x1はx2をものと定義する。 `dasinaga`/`dusinaga`と近義語。`dasinaga`の言い換え(`definition`参照)。
+thing
+ze ta za ta zi hehezu hesa disinaga sa za si zi hesi dasinaga sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-disinaga" data-astro-cid-futgqraz>disinaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: thing</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をものと定義する。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-dusinaga" data-astro-cid-d3rsstu7>dusinaga</a></code>と近義語。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a></code>の言い換え(<code class="lang" data-astro-cid-d3rsstu7>definition</code>参照)。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa disinaga <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20disinaga%20sa%20za%20si%20zi%20hesi%20dasinaga%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-do" data-pos="Eos" data-search="do
+文の区切り
+文の区切り。文末に置き、文と文の区切りを示す。文と文の間では必須で、最後の文の後ろでは省略できる。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-do" data-astro-cid-futgqraz>do</a></h2><span class="pos" data-astro-cid-futgqraz>文の区切り</span></header><p class="description" data-astro-cid-futgqraz>文の区切り。文末に置き、文と文の区切りを示す。文と文の間では必須で、最後の文の後ろでは省略できる。</p></article><article class="entry" id="w-du" data-pos="PostArgumentPhraseModifier" data-search="du
+項修飾句の前置詞
+項修飾句の前置詞。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-du" data-astro-cid-futgqraz>du</a></h2><span class="pos" style="--pos-color: 60 60 180" data-astro-cid-futgqraz>項修飾句の前置詞</span></header><p class="description" data-astro-cid-futgqraz>項修飾句の前置詞。</p></article><article class="entry" id="w-duboka" data-pos="BinaryPredicate" data-search="duboka
+述語
+x1はx2を本と定義する。
+book
+ze ta za ta zi hehezu hesa duboka sa za si zi hesi homa dapapera sa za si zi rihorada sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-duboka" data-astro-cid-futgqraz>duboka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: book</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を本と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa duboka <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-dapapera" data-astro-cid-d3rsstu7>dapapera</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-rihorada" data-astro-cid-d3rsstu7>rihorada</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20duboka%20sa%20za%20si%20zi%20hesi%20homa%20dapapera%20sa%20za%20si%20zi%20rihorada%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-duharora" data-pos="BinaryPredicate" data-search="duharora
+述語
+x1はx2を床と定義する。
+floor
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-duharora" data-astro-cid-futgqraz>duharora</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: floor</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を床と定義する。</p></article><article class="entry" id="w-dumobi" data-pos="BinaryPredicate" data-search="dumobi
+述語
+x1はx2を映画と定義する。
+movie
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dumobi" data-astro-cid-futgqraz>dumobi</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: movie</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を映画と定義する。</p></article><article class="entry" id="w-dusinaga" data-pos="BinaryPredicate" data-search="dusinaga
+述語
+x1はx2をものと定義する。 `dasinaga`/`disinaga`と近義語。`dasinaga`の言い換え(`definition`参照)。
+thing
+ze ta za ta zi hehezu hesa dusinaga sa za si zi hesi dasinaga sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-dusinaga" data-astro-cid-futgqraz>dusinaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: thing</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をものと定義する。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-disinaga" data-astro-cid-d3rsstu7>disinaga</a></code>と近義語。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a></code>の言い換え(<code class="lang" data-astro-cid-d3rsstu7>definition</code>参照)。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa dusinaga <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20dusinaga%20sa%20za%20si%20zi%20hesi%20dasinaga%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-ga" data-pos="Argument" data-search="ga
+項
+誰か(単数か複数か指定しない)
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ga" data-astro-cid-futgqraz>ga</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>誰か(単数か複数か指定しない)</p></article><article class="entry" id="w-gabusinesa" data-pos="BinaryPredicate" data-search="gabusinesa
+述語
+x1はx2をびじねす/事業と定義する。
+business
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-gabusinesa" data-astro-cid-futgqraz>gabusinesa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: business</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をビジネス/事業と定義する。</p></article><article class="entry" id="w-ge" data-pos="Argument" data-search="ge
+項
+あれ
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ge" data-astro-cid-futgqraz>ge</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>あれ</p></article><article class="entry" id="w-gi" data-pos="Argument" data-search="gi
+項
+彼/彼女
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-gi" data-astro-cid-futgqraz>gi</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>彼/彼女</p></article><article class="entry" id="w-go" data-pos="Determiner" data-search="go
+限定詞
+限定詞:あの。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-go" data-astro-cid-futgqraz>go</a></h2><span class="pos" style="--pos-color: 170 120 60" data-astro-cid-futgqraz>限定詞</span></header><p class="description" data-astro-cid-futgqraz>限定詞:あの。</p></article><article class="entry" id="w-gu" data-pos="Argument" data-search="gu
+項
+彼ら
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-gu" data-astro-cid-futgqraz>gu</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>彼ら</p></article><article class="entry" id="w-guhemare" data-pos="BinaryPredicate" data-search="guhemare
+述語
+x1はx2を(性自認上)女性と定義する。 生物学的な雌は`bihemare`。
+female
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-guhemare" data-astro-cid-futgqraz>guhemare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: female</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(性自認上)女性と定義する。 生物学的な雌は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-bihemare" data-astro-cid-d3rsstu7>bihemare</a></code>。</p></article><article class="entry" id="w-gumare" data-pos="BinaryPredicate" data-search="gumare
+述語
+x1はx2を(性自認上)男性と定義する。 生物学的な雄は`bimare`。
+male
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-gumare" data-astro-cid-futgqraz>gumare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: male</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(性自認上)男性と定義する。 生物学的な雄は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-bimare" data-astro-cid-d3rsstu7>bimare</a></code>。</p></article><article class="entry" id="w-gumesoda" data-pos="BinaryPredicate" data-search="gumesoda
+述語
+x1はx2を方法と定義する。
+method
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-gumesoda" data-astro-cid-futgqraz>gumesoda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: method</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を方法と定義する。</p></article><article class="entry" id="w-guminada" data-pos="BinaryPredicate" data-search="guminada
+述語
+x1はx2を考え/あいであと定義する。
+mind
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-guminada" data-astro-cid-futgqraz>guminada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: mind</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を考え/アイデアと定義する。</p></article><article class="entry" id="w-guresona" data-pos="BinaryPredicate" data-search="guresona
+述語
+x1はx2を理由と定義する。
+reason
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-guresona" data-astro-cid-futgqraz>guresona</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: reason</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を理由と定義する。</p></article><article class="entry" id="w-guside" data-pos="BinaryPredicate" data-search="guside
+述語
+x1はx2を側面/局面と定義する。
+side
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-guside" data-astro-cid-futgqraz>guside</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: side</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を側面/局面と定義する。</p></article><article class="entry" id="w-hane" data-pos="ModalityNegation" data-search="hane
+もだりてぃの否定
+もだりてぃの否定。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hane" data-astro-cid-futgqraz>hane</a></h2><span class="pos" style="--pos-color: 230 120 60" data-astro-cid-futgqraz>モダリティの否定</span></header><p class="description" data-astro-cid-futgqraz>モダリティの否定。</p></article><article class="entry" id="w-hapa" data-pos="ModalityBase" data-search="hapa
+もだりてぃ
+認識もだりてぃの基盤。量化対象は話し手が知っている事実と矛盾しない世界。 `hapa ta`=確実にe、`hapa to`=eかもしれない。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hapa" data-astro-cid-futgqraz>hapa</a></h2><span class="pos" style="--pos-color: 60 200 200" data-astro-cid-futgqraz>モダリティ</span></header><p class="description" data-astro-cid-futgqraz>認識モダリティの基盤。量化対象は話し手が知っている事実と矛盾しない世界。 <code class="lang" data-astro-cid-d3rsstu7>hapa <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a></code>=確実にe、<code class="lang" data-astro-cid-d3rsstu7>hapa <a href="#w-to" data-astro-cid-d3rsstu7>to</a></code>=eかもしれない。</p></article><article class="entry" id="w-hapi" data-pos="ModalityBase" data-search="hapi
+もだりてぃ
+義務もだりてぃの基盤。量化対象は法律・規則・道徳を守っている世界。 `hapi ta`=eしなければならない、`hapi to`=eしてもよい。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hapi" data-astro-cid-futgqraz>hapi</a></h2><span class="pos" style="--pos-color: 60 200 200" data-astro-cid-futgqraz>モダリティ</span></header><p class="description" data-astro-cid-futgqraz>義務モダリティの基盤。量化対象は法律・規則・道徳を守っている世界。 <code class="lang" data-astro-cid-d3rsstu7>hapi <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a></code>=eしなければならない、<code class="lang" data-astro-cid-d3rsstu7>hapi <a href="#w-to" data-astro-cid-d3rsstu7>to</a></code>=eしてもよい。</p></article><article class="entry" id="w-hapu" data-pos="ModalityBase" data-search="hapu
+もだりてぃ
+能力・状況もだりてぃの基盤。量化対象は現実の能力・環境条件を保持した世界。 `hapu ta`=eを必ずできる、`hapu to`=eすることができる。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hapu" data-astro-cid-futgqraz>hapu</a></h2><span class="pos" style="--pos-color: 60 200 200" data-astro-cid-futgqraz>モダリティ</span></header><p class="description" data-astro-cid-futgqraz>能力・状況モダリティの基盤。量化対象は現実の能力・環境条件を保持した世界。 <code class="lang" data-astro-cid-d3rsstu7>hapu <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a></code>=eを必ずできる、<code class="lang" data-astro-cid-d3rsstu7>hapu <a href="#w-to" data-astro-cid-d3rsstu7>to</a></code>=eすることができる。</p></article><article class="entry" id="w-he" data-pos="MtaEventToArgumentPhraseConverter" data-search="he
+節の開始まーかー
+節の開始まーかー。`ra`/`ri`/`re`/`ru <格標識>`の後ろで、述語の代わりに節を置くときに節の始まりに置く。単独では項にならない。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-he" data-astro-cid-futgqraz>he</a></h2><span class="pos" style="--pos-color: 210 60 210" data-astro-cid-futgqraz>節の開始マーカー</span></header><p class="description" data-astro-cid-futgqraz>節の開始マーカー。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ra" data-astro-cid-d3rsstu7>ra</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ri" data-astro-cid-d3rsstu7>ri</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-re" data-astro-cid-d3rsstu7>re</a></code>/<code class="lang" data-astro-cid-d3rsstu7>ru &lt;格標識&gt;</code>の後ろで、述語の代わりに節を置くときに節の始まりに置く。単独では項にならない。</p></article><article class="entry" id="w-hehenu" data-pos="ConnectiveHead" data-search="hehenu
+接続詞
+接続詞(対比)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側は成り立たず、hesi側は成り立つ(¬p∧q。『pではなくqだ』)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehenu" data-astro-cid-futgqraz>hehenu</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(対比)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側は成り立たず、hesi側は成り立つ(¬P∧Q。『PではなくQだ』)。</p></article><article class="entry" id="w-hehezu" data-pos="ConnectiveHead" data-search="hehezu
+接続詞
+接続詞(定義)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側は同値(p↔q)。単なる連言(論理式ではp∧q)とは異なり、辞書の`definition`を計画言語自身で書くための専用接続詞。`ze`(全称量化まーかー)・`za`/`zi`(定義用のすきーま変数)と組み合わせて使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehezu" data-astro-cid-futgqraz>hehezu</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(定義)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側は同値(P↔Q)。単なる連言(論理式ではP∧Q)とは異なり、辞書の<code class="lang" data-astro-cid-d3rsstu7>definition</code>を計画言語自身で書くための専用接続詞。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a></code>(全称量化マーカー)・<code class="lang" data-astro-cid-d3rsstu7><a href="#w-za" data-astro-cid-d3rsstu7>za</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code>(定義用のスキーマ変数)と組み合わせて使う。</p></article><article class="entry" id="w-hehitatu" data-pos="ConnectiveHead" data-search="hehitatu
+接続詞
+接続詞(時間の前後)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が時間的に前、hesi側が後の出来事で、両方成り立つ(p∧q)(旧`hehita`/`hehitu`を統合)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehitatu" data-astro-cid-futgqraz>hehitatu</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(時間の前後)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が時間的に前、hesi側が後の出来事で、両方成り立つ(P∧Q)(旧<code class="lang" data-astro-cid-d3rsstu7>hehita</code>/<code class="lang" data-astro-cid-d3rsstu7>hehitu</code>を統合)。</p></article><article class="entry" id="w-hehiti" data-pos="ConnectiveHead" data-search="hehiti
+接続詞
+接続詞(同時)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側は同時に成り立つ(p∧q)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehiti" data-astro-cid-futgqraz>hehiti</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(同時)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側は同時に成り立つ(P∧Q)。</p></article><article class="entry" id="w-hehito" data-pos="ConnectiveHead" data-search="hehito
+接続詞
+接続詞(条件)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が成り立つならhesi側も成り立つ(p→q)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehito" data-astro-cid-futgqraz>hehito</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(条件)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が成り立つならhesi側も成り立つ(P→Q)。</p></article><article class="entry" id="w-hehoma" data-pos="ConnectiveHead" data-search="hehoma
+接続詞
+接続詞(and)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つ(p∧q)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehoma" data-astro-cid-futgqraz>hehoma</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(and)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つ(P∧Q)。</p></article><article class="entry" id="w-hehomi" data-pos="ConnectiveHead" data-search="hehomi
+接続詞
+接続詞(or)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側のどちらかが成り立つ(p∨q)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehomi" data-astro-cid-futgqraz>hehomi</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(or)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側のどちらかが成り立つ(P∨Q)。</p></article><article class="entry" id="w-hehomu" data-pos="ConnectiveHead" data-search="hehomu
+接続詞
+接続詞(xor)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側のどちらか片方だけが成り立つ(p⊕q)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hehomu" data-astro-cid-futgqraz>hehomu</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(xor)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側のどちらか片方だけが成り立つ(P⊕Q)。</p></article><article class="entry" id="w-henohito" data-pos="ConnectiveHead" data-search="henohito
+接続詞
+接続詞(反実仮想条件)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が(反実仮想的に)成り立つならhesi側も成り立つ(p→q)。`hehito`(条件。hesa側の真偽を保留する直説法条件文)とは異なり、hesa側が実際には成り立たない(または成り立たなかった)という前提を伴う反実仮想条件文専用の接続詞。真理条件は`hehito`と同じ実質含意(p→q)で、法・言説関係の違いは真理条件れべるでは区別しない(他の接続詞群と同様)。それ自体は時制中立で、節内の`hita`(過去)/`hiti`(現在)と組み合わせて過去反実仮想・現在反実仮想を分析的に区別する。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-henohito" data-astro-cid-futgqraz>henohito</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(反実仮想条件)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側が(反実仮想的に)成り立つならhesi側も成り立つ(P→Q)。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hehito" data-astro-cid-d3rsstu7>hehito</a></code>(条件。hesa側の真偽を保留する直説法条件文)とは異なり、hesa側が実際には成り立たない(または成り立たなかった)という前提を伴う反実仮想条件文専用の接続詞。真理条件は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hehito" data-astro-cid-d3rsstu7>hehito</a></code>と同じ実質含意(P→Q)で、法・言説関係の違いは真理条件レベルでは区別しない(他の接続詞群と同様)。それ自体は時制中立で、節内の<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hita" data-astro-cid-d3rsstu7>hita</a></code>(過去)/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hiti" data-astro-cid-d3rsstu7>hiti</a></code>(現在)と組み合わせて過去反実仮想・現在反実仮想を分析的に区別する。</p></article><article class="entry" id="w-henosuteto" data-pos="ConnectiveHead" data-search="henosuteto
+接続詞
+接続詞(結果⇔反対の原因)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つことを表す、逆接的な原因を表す接続詞(『pなのにもかかわらず(反対の原因により)q』のように読める。旧`henesute`/`henesuto`を統合)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-henosuteto" data-astro-cid-futgqraz>henosuteto</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(結果⇔反対の原因)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つことを表す、逆接的な原因を表す接続詞(『Pなのにもかかわらず(反対の原因により)Q』のように読める。旧<code class="lang" data-astro-cid-d3rsstu7>henesute</code>/<code class="lang" data-astro-cid-d3rsstu7>henesuto</code>を統合)。</p></article><article class="entry" id="w-hesuteto" data-pos="ConnectiveHead" data-search="hesuteto
+接続詞
+接続詞(原因⇔結果)。文頭に置き、`hesa [節] hesi [節]`の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つことを表す(『pだから/なのでq』のように読める。hesa側が原因、hesi側が結果。旧`hesute`/`hesuto`を統合)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hesuteto" data-astro-cid-futgqraz>hesuteto</a></h2><span class="pos" style="--pos-color: 220 140 40" data-astro-cid-futgqraz>接続詞</span></header><p class="description" data-astro-cid-futgqraz>接続詞(原因⇔結果)。文頭に置き、<code class="lang" data-astro-cid-d3rsstu7>hesa [節] hesi [節]</code><a class="editor-link" href="/editor/?text=hesa%20%5B%E7%AF%80%5D%20hesi%20%5B%E7%AF%80%5D" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>の形でhesa側・hesi側それぞれの節を取る(順序は自由)。hesa側とhesi側が両方成り立つことを表す(『Pだから/なのでQ』のように読める。hesa側が原因、hesi側が結果。旧<code class="lang" data-astro-cid-d3rsstu7>hesute</code>/<code class="lang" data-astro-cid-d3rsstu7>hesuto</code>を統合)。</p></article><article class="entry" id="w-hine" data-pos="TenseNegation" data-search="hine
+てんすの否定
+てんすの否定。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hine" data-astro-cid-futgqraz>hine</a></h2><span class="pos" style="--pos-color: 230 120 60" data-astro-cid-futgqraz>テンスの否定</span></header><p class="description" data-astro-cid-futgqraz>テンスの否定。</p></article><article class="entry" id="w-hita" data-pos="Tense" data-search="hita
+てんす
+てんす:過去。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hita" data-astro-cid-futgqraz>hita</a></h2><span class="pos" style="--pos-color: 160 80 220" data-astro-cid-futgqraz>テンス</span></header><p class="description" data-astro-cid-futgqraz>テンス:過去。</p></article><article class="entry" id="w-hiti" data-pos="Tense" data-search="hiti
+てんす
+てんす:現在。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hiti" data-astro-cid-futgqraz>hiti</a></h2><span class="pos" style="--pos-color: 160 80 220" data-astro-cid-futgqraz>テンス</span></header><p class="description" data-astro-cid-futgqraz>テンス:現在。</p></article><article class="entry" id="w-hitu" data-pos="Tense" data-search="hitu
+てんす
+てんす:未来。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hitu" data-astro-cid-futgqraz>hitu</a></h2><span class="pos" style="--pos-color: 160 80 220" data-astro-cid-futgqraz>テンス</span></header><p class="description" data-astro-cid-futgqraz>テンス:未来。</p></article><article class="entry" id="w-ho" data-pos="MtaEventToArgumentPhraseConverterEnd" data-search="ho
+節の終了まーかー
+節の終了まーかー。`he`で始めた節の終わりに置く。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ho" data-astro-cid-futgqraz>ho</a></h2><span class="pos" style="--pos-color: 210 60 210" data-astro-cid-futgqraz>節の終了マーカー</span></header><p class="description" data-astro-cid-futgqraz>節の終了マーカー。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-he" data-astro-cid-d3rsstu7>he</a></code>で始めた節の終わりに置く。</p></article><article class="entry" id="w-hoba" data-pos="PhraseOperator" data-search="hoba
+述語・項の演算子
+述語・項のand。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hoba" data-astro-cid-futgqraz>hoba</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>述語・項の演算子</span></header><p class="description" data-astro-cid-futgqraz>述語・項のand。</p></article><article class="entry" id="w-hobi" data-pos="PhraseOperator" data-search="hobi
+述語・項の演算子
+述語・項のor。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hobi" data-astro-cid-futgqraz>hobi</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>述語・項の演算子</span></header><p class="description" data-astro-cid-futgqraz>述語・項のor。</p></article><article class="entry" id="w-hobu" data-pos="PhraseOperator" data-search="hobu
+述語・項の演算子
+述語・項のxor。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hobu" data-astro-cid-futgqraz>hobu</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>述語・項の演算子</span></header><p class="description" data-astro-cid-futgqraz>述語・項のxor。</p></article><article class="entry" id="w-homa" data-pos="MtaEventOperator" data-search="homa
+命題の演算子
+命題のand。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-homa" data-astro-cid-futgqraz>homa</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>命題の演算子</span></header><p class="description" data-astro-cid-futgqraz>命題のand。</p></article><article class="entry" id="w-homi" data-pos="MtaEventOperator" data-search="homi
+命題の演算子
+命題のor。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-homi" data-astro-cid-futgqraz>homi</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>命題の演算子</span></header><p class="description" data-astro-cid-futgqraz>命題のor。</p></article><article class="entry" id="w-homu" data-pos="MtaEventOperator" data-search="homu
+命題の演算子
+命題のxor。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-homu" data-astro-cid-futgqraz>homu</a></h2><span class="pos" style="--pos-color: 130 130 130" data-astro-cid-futgqraz>命題の演算子</span></header><p class="description" data-astro-cid-futgqraz>命題のxor。</p></article><article class="entry" id="w-huda" data-pos="Aspect" data-search="huda
+あすぺくと
+あすぺくと:未然(まだ起きていない)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-huda" data-astro-cid-futgqraz>huda</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:未然(まだ起きていない)。</p></article><article class="entry" id="w-hude" data-pos="Aspect" data-search="hude
+あすぺくと
+あすぺくと:開始。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hude" data-astro-cid-futgqraz>hude</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:開始。</p></article><article class="entry" id="w-hudida" data-pos="Aspect" data-search="hudida
+あすぺくと
+あすぺくと:進行。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hudida" data-astro-cid-futgqraz>hudida</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:進行。</p></article><article class="entry" id="w-hudidi" data-pos="Aspect" data-search="hudidi
+あすぺくと
+あすぺくと:習慣。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hudidi" data-astro-cid-futgqraz>hudidi</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:習慣。</p></article><article class="entry" id="w-hudidu" data-pos="Aspect" data-search="hudidu
+あすぺくと
+あすぺくと:反復。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hudidu" data-astro-cid-futgqraz>hudidu</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:反復。</p></article><article class="entry" id="w-hudo" data-pos="Aspect" data-search="hudo
+あすぺくと
+あすぺくと:終了。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hudo" data-astro-cid-futgqraz>hudo</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:終了。</p></article><article class="entry" id="w-hudu" data-pos="Aspect" data-search="hudu
+あすぺくと
+あすぺくと:事後(既にし終わっている)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hudu" data-astro-cid-futgqraz>hudu</a></h2><span class="pos" style="--pos-color: 220 80 160" data-astro-cid-futgqraz>アスペクト</span></header><p class="description" data-astro-cid-futgqraz>アスペクト:事後(既にし終わっている)。</p></article><article class="entry" id="w-hune" data-pos="AspectNegation" data-search="hune
+あすぺくとの否定
+あすぺくとの否定。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-hune" data-astro-cid-futgqraz>hune</a></h2><span class="pos" style="--pos-color: 230 120 60" data-astro-cid-futgqraz>アスペクトの否定</span></header><p class="description" data-astro-cid-futgqraz>アスペクトの否定。</p></article><article class="entry" id="w-kagame" data-pos="BinaryPredicate" data-search="kagame
+述語
+x1(人)はx2(概念)というげーむをする。
+game
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kagame" data-astro-cid-futgqraz>kagame</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: game</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)というゲームをする。</p></article><article class="entry" id="w-kahanata" data-pos="BinaryPredicate" data-search="kahanata
+述語
+x1(人)はx2(概念)を望む/欲する。
+want
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahanata" data-astro-cid-futgqraz>kahanata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: want</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を望む/欲する。</p></article><article class="entry" id="w-kahapi" data-pos="BinaryPredicate" data-search="kahapi
+述語
+x1(人)はx2(概念)について楽しむ/喜ぶ。
+happy
+
+嫌う/好まない
+no kahapi sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahapi" data-astro-cid-futgqraz>kahapi</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: happy</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)について楽しむ/喜ぶ。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>嫌う/好まない</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no kahapi <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-kahekasaperinase" data-pos="BinaryPredicate" data-search="kahekasaperinase
+述語
+x1(人)はx2(概念)を経験したことがある。
+experience
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahekasaperinase" data-astro-cid-futgqraz>kahekasaperinase</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: experience</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を経験したことがある。</p></article><article class="entry" id="w-kaho" data-pos="BinaryPredicate" data-search="kaho
+述語
+x1(人)はx2(概念)に肯定する。 よく使う語なので短い文字列にした造語(`ka`+`o`)。単独で「はい」の返答として使う(例:`kaho sa mi si be`)。
+
+
+否定する
+no kaho sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kaho" data-astro-cid-futgqraz>kaho</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)に肯定する。 よく使う語なので短い文字列にした造語(<code class="lang" data-astro-cid-d3rsstu7>ka</code>+<code class="lang" data-astro-cid-d3rsstu7>o</code>)。単独で「はい」の返答として使う(例:<code class="lang" data-astro-cid-d3rsstu7>kaho <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-mi" data-astro-cid-d3rsstu7>mi</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-be" data-astro-cid-d3rsstu7>be</a></code><a class="editor-link" href="/editor/?text=kaho%20sa%20mi%20si%20be" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a>)。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>否定する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no kaho <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-kahorada" data-pos="BinaryPredicate" data-search="kahorada
+述語
+x1(人)はx2(概念)という会合を開催する。
+hold
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahorada" data-astro-cid-futgqraz>kahorada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hold</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)という会合を開催する。</p></article><article class="entry" id="w-kahoraka" data-pos="BinaryPredicate" data-search="kahoraka
+述語
+x1(人)はx2(概念)という仕事をする。
+work
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahoraka" data-astro-cid-futgqraz>kahoraka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: work</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)という仕事をする。</p></article><article class="entry" id="w-kahunaderasatanada" data-pos="BinaryPredicate" data-search="kahunaderasatanada
+述語
+x1(人)はx2(概念)を理解する。
+understand
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kahunaderasatanada" data-astro-cid-futgqraz>kahunaderasatanada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: understand</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を理解する。</p></article><article class="entry" id="w-kakategorize" data-pos="BinaryPredicate" data-search="kakategorize
+述語
+x1(人)はx2(概念)をあるらべる集合に分類する。
+categorize
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kakategorize" data-astro-cid-futgqraz>kakategorize</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: categorize</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)をあるラベル集合に分類する。</p></article><article class="entry" id="w-kano" data-pos="BinaryPredicate" data-search="kano
+述語
+x1(人)はx2(概念)を知っている。
+know
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kano" data-astro-cid-futgqraz>kano</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: know</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を知っている。</p></article><article class="entry" id="w-karememabera" data-pos="BinaryPredicate" data-search="karememabera
+述語
+x1(人)はx2(概念)を覚えている。
+remember
+
+忘れる
+no karememabera sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-karememabera" data-astro-cid-futgqraz>karememabera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: remember</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を覚えている。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>忘れる</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no karememabera <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-kareta" data-pos="BinaryPredicate" data-search="kareta
+述語
+x1(人)はx2(概念)という命題をさせる(使役)。
+let
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kareta" data-astro-cid-futgqraz>kareta</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: let</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)という命題をさせる(使役)。</p></article><article class="entry" id="w-kasa" data-pos="BinaryPredicate" data-search="kasa
+述語
+x1(人)はx2(概念)を言う。
+say
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kasa" data-astro-cid-futgqraz>kasa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: say</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)を言う。</p></article><article class="entry" id="w-kasema" data-pos="BinaryPredicate" data-search="kasema
+述語
+x1(人)にはx2(概念)のようだ(伝聞・推量)。
+seem
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kasema" data-astro-cid-futgqraz>kasema</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: seem</span></header><p class="description" data-astro-cid-futgqraz>x1(人)にはx2(概念)のようだ(伝聞・推量)。</p></article><article class="entry" id="w-kasinaka" data-pos="BinaryPredicate" data-search="kasinaka
+述語
+x1(人)はx2(概念)だと考える。
+think
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kasinaka" data-astro-cid-futgqraz>kasinaka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: think</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)だと考える。</p></article><article class="entry" id="w-kataraka" data-pos="BinaryPredicate" data-search="kataraka
+述語
+x1(人)はx2(概念)について話す。
+talk
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-kataraka" data-astro-cid-futgqraz>kataraka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: talk</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)について話す。</p></article><article class="entry" id="w-katime" data-pos="BinaryPredicate" data-search="katime
+述語
+x1(人)はx2(概念)の時間を計測する。
+time
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-katime" data-astro-cid-futgqraz>katime</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: time</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(概念)の時間を計測する。</p></article><article class="entry" id="w-ko" data-pos="Argument" data-search="ko
+項
+疑問詞。格標識の後ろに置き、その項を尋ねる(誰、何、いつ、どこ)。`ku`で始まる疑問文の中でのみ使える。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ko" data-astro-cid-futgqraz>ko</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>疑問詞。格標識の後ろに置き、その項を尋ねる(誰、何、いつ、どこ)。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ku" data-astro-cid-d3rsstu7>ku</a></code>で始まる疑問文の中でのみ使える。</p></article><article class="entry" id="w-ku" data-pos="InterrogativeMarker" data-search="ku
+疑問文まーかー
+疑問文まーかー。文頭に置き、平叙文を疑問文にする。 読み・表記は`ku`のみ(ろじばんの`ku`とは無関係)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ku" data-astro-cid-futgqraz>ku</a></h2><span class="pos" style="--pos-color: 210 210 50" data-astro-cid-futgqraz>疑問文マーカー</span></header><p class="description" data-astro-cid-futgqraz>疑問文マーカー。文頭に置き、平叙文を疑問文にする。 読み・表記は<code class="lang" data-astro-cid-d3rsstu7>ku</code>のみ(ロジバンの<code class="lang" data-astro-cid-d3rsstu7>ku</code>とは無関係)。</p></article><article class="entry" id="w-ma" data-pos="Argument" data-search="ma
+項
+私とあなた(たち)
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ma" data-astro-cid-futgqraz>ma</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>私とあなた(たち)</p></article><article class="entry" id="w-me" data-pos="Argument" data-search="me
+項
+これ
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-me" data-astro-cid-futgqraz>me</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>これ</p></article><article class="entry" id="w-mi" data-pos="Argument" data-search="mi
+項
+私
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-mi" data-astro-cid-futgqraz>mi</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>私</p></article><article class="entry" id="w-mo" data-pos="Determiner" data-search="mo
+限定詞
+限定詞:この。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-mo" data-astro-cid-futgqraz>mo</a></h2><span class="pos" style="--pos-color: 170 120 60" data-astro-cid-futgqraz>限定詞</span></header><p class="description" data-astro-cid-futgqraz>限定詞:この。</p></article><article class="entry" id="w-mu" data-pos="Argument" data-search="mu
+項
+あなたを含まない私たち
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-mu" data-astro-cid-futgqraz>mu</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>あなたを含まない私たち</p></article><article class="entry" id="w-nahorada" data-pos="BinaryPredicate" data-search="nahorada
+述語
+x1はx2を世界と定義する。
+world
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nahorada" data-astro-cid-futgqraz>nahorada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: world</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を世界と定義する。</p></article><article class="entry" id="w-namona" data-pos="BinaryPredicate" data-search="namona
+述語
+x1はx2を月(天体)と定義する。
+moon
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-namona" data-astro-cid-futgqraz>namona</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: moon</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を月(天体)と定義する。</p></article><article class="entry" id="w-namonatana" data-pos="BinaryPredicate" data-search="namonatana
+述語
+x1はx2を山と定義する。
+mountain
+ze ta za ta zi hehezu hesa namonatana sa za si zi hesi homa dasinaga sa za si zi rehi sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-namonatana" data-astro-cid-futgqraz>namonatana</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: mountain</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を山と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa namonatana <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-rehi" data-astro-cid-d3rsstu7>rehi</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20namonatana%20sa%20za%20si%20zi%20hesi%20homa%20dasinaga%20sa%20za%20si%20zi%20rehi%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-nasaki" data-pos="BinaryPredicate" data-search="nasaki
+述語
+x1はx2を空と定義する。
+sky
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nasaki" data-astro-cid-futgqraz>nasaki</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: sky</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を空と定義する。</p></article><article class="entry" id="w-nasatara" data-pos="BinaryPredicate" data-search="nasatara
+述語
+x1はx2を星と定義する。
+star
+ze ta za ta zi hehezu hesa nasatara sa za si zi hesi homa nohire sa za si zi resamara sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nasatara" data-astro-cid-futgqraz>nasatara</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: star</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を星と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa nasatara <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-nohire" data-astro-cid-d3rsstu7>nohire</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-resamara" data-astro-cid-d3rsstu7>resamara</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20nasatara%20sa%20za%20si%20zi%20hesi%20homa%20nohire%20sa%20za%20si%20zi%20resamara%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-nase" data-pos="BinaryPredicate" data-search="nase
+述語
+x1はx2を海と定義する。
+sea
+ze ta za ta zi hehezu hesa nase sa za si zi hesi homa nihatera sa za si zi no resamara sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nase" data-astro-cid-futgqraz>nase</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: sea</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を海と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa nase <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-nihatera" data-astro-cid-d3rsstu7>nihatera</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> no <a href="#w-resamara" data-astro-cid-d3rsstu7>resamara</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20nase%20sa%20za%20si%20zi%20hesi%20homa%20nihatera%20sa%20za%20si%20zi%20no%20resamara%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-nasuna" data-pos="BinaryPredicate" data-search="nasuna
+述語
+x1はx2を太陽と定義する。
+sun
+ze ta za ta zi hehezu hesa nasuna sa za si zi hesi homa nohire sa za si zi no resamara sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nasuna" data-astro-cid-futgqraz>nasuna</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: sun</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を太陽と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa nasuna <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-nohire" data-astro-cid-d3rsstu7>nohire</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> no <a href="#w-resamara" data-astro-cid-d3rsstu7>resamara</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20nasuna%20sa%20za%20si%20zi%20hesi%20homa%20nohire%20sa%20za%20si%20zi%20no%20resamara%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-ne" data-pos="Negation" data-search="ne
+否定
+述語・項の否定。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ne" data-astro-cid-futgqraz>ne</a></h2><span class="pos" style="--pos-color: 220 60 60" data-astro-cid-futgqraz>否定</span></header><p class="description" data-astro-cid-futgqraz>述語・項の否定。</p></article><article class="entry" id="w-netona" data-pos="BinaryPredicate" data-search="netona
+述語
+x1はx2を町と定義する。
+town
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-netona" data-astro-cid-futgqraz>netona</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: town</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を町と定義する。</p></article><article class="entry" id="w-nihatera" data-pos="BinaryPredicate" data-search="nihatera
+述語
+x1はx2を水と定義する。
+water
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nihatera" data-astro-cid-futgqraz>nihatera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: water</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を水と定義する。</p></article><article class="entry" id="w-nodinera" data-pos="BinaryPredicate" data-search="nodinera
+述語
+x1はx2を夕食と定義する。
+dinner
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nodinera" data-astro-cid-futgqraz>nodinera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: dinner</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を夕食と定義する。</p></article><article class="entry" id="w-nohapare" data-pos="BinaryPredicate" data-search="nohapare
+述語
+x1はx2をりんごと定義する。
+apple
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nohapare" data-astro-cid-futgqraz>nohapare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: apple</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をりんごと定義する。</p></article><article class="entry" id="w-nohire" data-pos="BinaryPredicate" data-search="nohire
+述語
+x1はx2を火と定義する。
+fire
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nohire" data-astro-cid-futgqraz>nohire</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: fire</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を火と定義する。</p></article><article class="entry" id="w-nohoda" data-pos="BinaryPredicate" data-search="nohoda
+述語
+x1はx2を食べ物と定義する。
+food
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nohoda" data-astro-cid-futgqraz>nohoda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: food</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を食べ物と定義する。</p></article><article class="entry" id="w-nohoranage" data-pos="BinaryPredicate" data-search="nohoranage
+述語
+x1はx2をみかんと定義する。
+orange
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nohoranage" data-astro-cid-futgqraz>nohoranage</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: orange</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をみかんと定義する。</p></article><article class="entry" id="w-norana" data-pos="BinaryPredicate" data-search="norana
+述語
+x1はx2を雨と定義する。
+rain
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-norana" data-astro-cid-futgqraz>norana</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: rain</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を雨と定義する。</p></article><article class="entry" id="w-nuhanada" data-pos="BinaryPredicate" data-search="nuhanada
+述語
+x1はx2を手と定義する。
+hand
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhanada" data-astro-cid-futgqraz>nuhanada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hand</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を手と定義する。</p></article><article class="entry" id="w-nuhara" data-pos="BinaryPredicate" data-search="nuhara
+述語
+x1はx2を髪と定義する。
+hair
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhara" data-astro-cid-futgqraz>nuhara</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hair</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を髪と定義する。</p></article><article class="entry" id="w-nuharama" data-pos="BinaryPredicate" data-search="nuharama
+述語
+x1はx2を腕と定義する。
+arm
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuharama" data-astro-cid-futgqraz>nuharama</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: arm</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を腕と定義する。</p></article><article class="entry" id="w-nuhase" data-pos="BinaryPredicate" data-search="nuhase
+述語
+x1はx2を顔と定義する。
+face
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhase" data-astro-cid-futgqraz>nuhase</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: face</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を顔と定義する。</p></article><article class="entry" id="w-nuhe" data-pos="BinaryPredicate" data-search="nuhe
+述語
+x1はx2を目と定義する。
+eye
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhe" data-astro-cid-futgqraz>nuhe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: eye</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を目と定義する。</p></article><article class="entry" id="w-nuheda" data-pos="BinaryPredicate" data-search="nuheda
+述語
+x1はx2を頭と定義する。
+head
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuheda" data-astro-cid-futgqraz>nuheda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: head</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を頭と定義する。</p></article><article class="entry" id="w-nuhera" data-pos="BinaryPredicate" data-search="nuhera
+述語
+x1はx2を耳と定義する。
+ear
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhera" data-astro-cid-futgqraz>nuhera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: ear</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を耳と定義する。</p></article><article class="entry" id="w-nuherata" data-pos="BinaryPredicate" data-search="nuherata
+述語
+x1はx2を心臓と定義する。
+heart
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuherata" data-astro-cid-futgqraz>nuherata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: heart</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を心臓と定義する。</p></article><article class="entry" id="w-nuhota" data-pos="BinaryPredicate" data-search="nuhota
+述語
+x1はx2を足と定義する。
+foot
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nuhota" data-astro-cid-futgqraz>nuhota</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: foot</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を足と定義する。</p></article><article class="entry" id="w-numosa" data-pos="BinaryPredicate" data-search="numosa
+述語
+x1はx2を口と定義する。
+mouth
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-numosa" data-astro-cid-futgqraz>numosa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: mouth</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を口と定義する。</p></article><article class="entry" id="w-nunose" data-pos="BinaryPredicate" data-search="nunose
+述語
+x1はx2を鼻と定義する。
+nose
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nunose" data-astro-cid-futgqraz>nunose</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: nose</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を鼻と定義する。</p></article><article class="entry" id="w-nurega" data-pos="BinaryPredicate" data-search="nurega
+述語
+x1はx2を脚と定義する。
+leg
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nurega" data-astro-cid-futgqraz>nurega</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: leg</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を脚と定義する。</p></article><article class="entry" id="w-nutosa" data-pos="BinaryPredicate" data-search="nutosa
+述語
+x1はx2を歯と定義する。
+tooth
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-nutosa" data-astro-cid-futgqraz>nutosa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: tooth</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を歯と定義する。</p></article><article class="entry" id="w-pahamiri" data-pos="BinaryPredicate" data-search="pahamiri
+述語
+x1(人)はx2(人)の家族だ。 `dictionary.txt`の下書きでは`pehamiri`(`pe`接頭辞)だったが、x1・x2ともに生物である関係のため`pa`接頭辞に修正した。
+family
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pahamiri" data-astro-cid-futgqraz>pahamiri</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: family</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)の家族だ。 <code class="lang" data-astro-cid-d3rsstu7>dictionary.txt</code>の下書きでは<code class="lang" data-astro-cid-d3rsstu7>pehamiri</code>(<code class="lang" data-astro-cid-d3rsstu7>pe</code>接頭辞)だったが、x1・x2ともに生物である関係のため<code class="lang" data-astro-cid-d3rsstu7>pa</code>接頭辞に修正した。</p></article><article class="entry" id="w-paharinada" data-pos="BinaryPredicate" data-search="paharinada
+述語
+x1(人)はx2(人)の友達だ。
+friend
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-paharinada" data-astro-cid-futgqraz>paharinada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: friend</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)の友達だ。</p></article><article class="entry" id="w-paherapa" data-pos="BinaryPredicate" data-search="paherapa
+述語
+x1(人)はx2(人)を助ける。
+help
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-paherapa" data-astro-cid-futgqraz>paherapa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: help</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)を助ける。</p></article><article class="entry" id="w-pamarige" data-pos="BinaryPredicate" data-search="pamarige
+述語
+x1(人)はx2(人)と結婚する。
+marriage
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pamarige" data-astro-cid-futgqraz>pamarige</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: marriage</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)と結婚する。</p></article><article class="entry" id="w-paparatanera" data-pos="BinaryPredicate" data-search="paparatanera
+述語
+x1(人)はx2(人)のぱーとなー/配偶者だ。
+partner
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-paparatanera" data-astro-cid-futgqraz>paparatanera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: partner</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)のパートナー/配偶者だ。</p></article><article class="entry" id="w-paparenata" data-pos="BinaryPredicate" data-search="paparenata
+述語
+x1(人)はx2(人)の親だ。
+parent
+ze ta za ta zi hehezu hesa paparenata sa za si zi hesi patirada sa zi si za" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-paparenata" data-astro-cid-futgqraz>paparenata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: parent</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)の親だ。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa paparenata <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-patirada" data-astro-cid-d3rsstu7>patirada</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20paparenata%20sa%20za%20si%20zi%20hesi%20patirada%20sa%20zi%20si%20za" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-parobe" data-pos="BinaryPredicate" data-search="parobe
+述語
+x1(人)はx2(人)を愛す。
+love
+
+憎む
+no parobe sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-parobe" data-astro-cid-futgqraz>parobe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: love</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)を愛す。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>憎む</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no parobe <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-pasibarinaga" data-pos="BinaryPredicate" data-search="pasibarinaga
+述語
+x1(人)はx2(人)のきょうだいだ。
+sibling
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pasibarinaga" data-astro-cid-futgqraz>pasibarinaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: sibling</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)のきょうだいだ。</p></article><article class="entry" id="w-patirada" data-pos="BinaryPredicate" data-search="patirada
+述語
+x1(人)はx2(人)の子だ。
+child
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-patirada" data-astro-cid-futgqraz>patirada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: child</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(人)の子だ。</p></article><article class="entry" id="w-pebareka" data-pos="BinaryPredicate" data-search="pebareka
+述語
+x1(人)はx2(物)を壊す。
+break
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pebareka" data-astro-cid-futgqraz>pebareka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: break</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を壊す。</p></article><article class="entry" id="w-pebu" data-pos="BinaryPredicate" data-search="pebu
+述語
+x1(人)はx2(物)を買う。
+buy
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pebu" data-astro-cid-futgqraz>pebu</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: buy</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を買う。</p></article><article class="entry" id="w-peburada" data-pos="BinaryPredicate" data-search="peburada
+述語
+x1(人)はx2(物)を建てる/作る。
+build
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-peburada" data-astro-cid-futgqraz>peburada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: build</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を建てる/作る。</p></article><article class="entry" id="w-pedaropa" data-pos="BinaryPredicate" data-search="pedaropa
+述語
+x1(人)はx2(物)を落とす/x2(物)が落ちる。
+drop
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pedaropa" data-astro-cid-futgqraz>pedaropa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: drop</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を落とす/x2(物)が落ちる。</p></article><article class="entry" id="w-pedirati" data-pos="BinaryPredicate" data-search="pedirati
+述語
+x1(人)はx2(物)を汚す。
+dirty
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pedirati" data-astro-cid-futgqraz>pedirati</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: dirty</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を汚す。</p></article><article class="entry" id="w-pegibe" data-pos="BinaryPredicate" data-search="pegibe
+述語
+x1(人)はx2(物)をあげる。
+give
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pegibe" data-astro-cid-futgqraz>pegibe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: give</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)をあげる。</p></article><article class="entry" id="w-pehera" data-pos="BinaryPredicate" data-search="pehera
+述語
+x1(人)はx2(物)の音を聞く。
+hear
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pehera" data-astro-cid-futgqraz>pehera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hear</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)の音を聞く。</p></article><article class="entry" id="w-peheta" data-pos="BinaryPredicate" data-search="peheta
+述語
+x1(人)はx2(物)を食べる。
+eat
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-peheta" data-astro-cid-futgqraz>peheta</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: eat</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を食べる。</p></article><article class="entry" id="w-pehopena" data-pos="BinaryPredicate" data-search="pehopena
+述語
+x1(人)はx2(物)を開ける。
+open
+
+閉じる
+no pehopena sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pehopena" data-astro-cid-futgqraz>pehopena</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: open</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を開ける。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>閉じる</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no pehopena <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-pehuse" data-pos="BinaryPredicate" data-search="pehuse
+述語
+x1(人)はx2(物)を使う。
+use
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pehuse" data-astro-cid-futgqraz>pehuse</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: use</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を使う。</p></article><article class="entry" id="w-pekarena" data-pos="BinaryPredicate" data-search="pekarena
+述語
+x1(人)はx2(物)を綺麗にする。
+clean
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pekarena" data-astro-cid-futgqraz>pekarena</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: clean</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を綺麗にする。</p></article><article class="entry" id="w-pemake" data-pos="BinaryPredicate" data-search="pemake
+述語
+x1(人)はx2(物)を作る。
+make
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pemake" data-astro-cid-futgqraz>pemake</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: make</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を作る。</p></article><article class="entry" id="w-pemobe" data-pos="BinaryPredicate" data-search="pemobe
+述語
+x1(人)はx2(物)の所有を移す(`sube`=起点、`subo`=目標)。 `sube`のみなら「もらう」、`subo`のみなら「あげる」の意味になる。
+move
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pemobe" data-astro-cid-futgqraz>pemobe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: move</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)の所有を移す(<code class="lang" data-astro-cid-d3rsstu7><a href="#w-sube" data-astro-cid-d3rsstu7>sube</a></code>=起点、<code class="lang" data-astro-cid-d3rsstu7><a href="#w-subo" data-astro-cid-d3rsstu7>subo</a></code>=目標)。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-sube" data-astro-cid-d3rsstu7>sube</a></code>のみなら「もらう」、<code class="lang" data-astro-cid-d3rsstu7><a href="#w-subo" data-astro-cid-d3rsstu7>subo</a></code>のみなら「あげる」の意味になる。</p></article><article class="entry" id="w-peputa" data-pos="BinaryPredicate" data-search="peputa
+述語
+x1(人)はx2(物)を置く。
+put
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-peputa" data-astro-cid-futgqraz>peputa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: put</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を置く。</p></article><article class="entry" id="w-pereda" data-pos="BinaryPredicate" data-search="pereda
+述語
+x1(人)はx2(物)を読む。
+read
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pereda" data-astro-cid-futgqraz>pereda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: read</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を読む。</p></article><article class="entry" id="w-perite" data-pos="BinaryPredicate" data-search="perite
+述語
+x1(人)はx2(物)を書く。
+write
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-perite" data-astro-cid-futgqraz>perite</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: write</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を書く。</p></article><article class="entry" id="w-perobe" data-pos="BinaryPredicate" data-search="perobe
+述語
+x1(人)はx2(物)を愛す/好む。
+love
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-perobe" data-astro-cid-futgqraz>perobe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: love</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を愛す/好む。</p></article><article class="entry" id="w-peroka" data-pos="BinaryPredicate" data-search="peroka
+述語
+x1(人)はx2(物)を見る。
+look
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-peroka" data-astro-cid-futgqraz>peroka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: look</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を見る。</p></article><article class="entry" id="w-petake" data-pos="BinaryPredicate" data-search="petake
+述語
+x1(人)はx2(物)を取る。
+take
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-petake" data-astro-cid-futgqraz>petake</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: take</span></header><p class="description" data-astro-cid-futgqraz>x1(人)はx2(物)を取る。</p></article><article class="entry" id="w-pidi" data-pos="BinaryPredicate" data-search="pidi
+述語
+x1(人)は死ぬ。
+die
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pidi" data-astro-cid-futgqraz>pidi</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: die</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は死ぬ。</p></article><article class="entry" id="w-pigo" data-pos="BinaryPredicate" data-search="pigo
+述語
+x1(人)は行く。
+go
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pigo" data-astro-cid-futgqraz>pigo</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: go</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は行く。</p></article><article class="entry" id="w-piharaka" data-pos="BinaryPredicate" data-search="piharaka
+述語
+x1(人)は歩く。
+walk
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-piharaka" data-astro-cid-futgqraz>piharaka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: walk</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は歩く。</p></article><article class="entry" id="w-piharibe" data-pos="BinaryPredicate" data-search="piharibe
+述語
+x1(人)は生きている。
+alive
+ze ta za hehezu hesa piharibe sa za hesi hudu ne pidi sa za" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-piharibe" data-astro-cid-futgqraz>piharibe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: alive</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は生きている。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa piharibe <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> hesi <a href="#w-hudu" data-astro-cid-d3rsstu7>hudu</a> <a href="#w-ne" data-astro-cid-d3rsstu7>ne</a> <a href="#w-pidi" data-astro-cid-d3rsstu7>pidi</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20hehezu%20hesa%20piharibe%20sa%20za%20hesi%20hudu%20ne%20pidi%20sa%20za" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-pihekasisata" data-pos="BinaryPredicate" data-search="pihekasisata
+述語
+x1(生物)は存在する。
+exist
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pihekasisata" data-astro-cid-futgqraz>pihekasisata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: exist</span></header><p class="description" data-astro-cid-futgqraz>x1(生物)は存在する。</p></article><article class="entry" id="w-pikome" data-pos="BinaryPredicate" data-search="pikome
+述語
+x1(人)は来る。
+come
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pikome" data-astro-cid-futgqraz>pikome</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: come</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は来る。</p></article><article class="entry" id="w-piribe" data-pos="BinaryPredicate" data-search="piribe
+述語
+x1(人)は生活する/住む。
+live
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-piribe" data-astro-cid-futgqraz>piribe</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: live</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は生活する/住む。</p></article><article class="entry" id="w-piruna" data-pos="BinaryPredicate" data-search="piruna
+述語
+x1(人)は走る。
+run
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-piruna" data-astro-cid-futgqraz>piruna</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: run</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は走る。</p></article><article class="entry" id="w-pisarepa" data-pos="BinaryPredicate" data-search="pisarepa
+述語
+x1(人)は眠る。
+sleep
+
+目覚めている/起きている
+no pisarepa sa za" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-pisarepa" data-astro-cid-futgqraz>pisarepa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: sleep</span></header><p class="description" data-astro-cid-futgqraz>x1(人)は眠る。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>目覚めている/起きている</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no pisarepa <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a></code></dd></dl></article><article class="entry" id="w-puhekasisata" data-pos="BinaryPredicate" data-search="puhekasisata
+述語
+x1(非生物)は存在する。
+exist
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-puhekasisata" data-astro-cid-futgqraz>puhekasisata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: exist</span></header><p class="description" data-astro-cid-futgqraz>x1(非生物)は存在する。</p></article><article class="entry" id="w-ra" data-pos="ArgumentRetriever" data-search="ra
+項抽出
+項抽出。述語の第一項(x1)を抽出し、項句(名詞句)に変換する。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ra" data-astro-cid-futgqraz>ra</a></h2><span class="pos" style="--pos-color: 160 60 160" data-astro-cid-futgqraz>項抽出</span></header><p class="description" data-astro-cid-futgqraz>項抽出。述語の第一項(x1)を抽出し、項句(名詞句)に変換する。</p></article><article class="entry" id="w-rahome" data-pos="BinaryPredicate" data-search="rahome
+述語
+x1はx2を(概念上の)故郷/心の拠り所と定義する。 建物としての家は`dihome`。
+home
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rahome" data-astro-cid-futgqraz>rahome</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: home</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(概念上の)故郷/心の拠り所と定義する。 建物としての家は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-dihome" data-astro-cid-d3rsstu7>dihome</a></code>。</p></article><article class="entry" id="w-raparobarema" data-pos="BinaryPredicate" data-search="raparobarema
+述語
+x1はx2を問題と定義する。
+problem
+ze ta za ta zi hehezu hesa raparobarema sa za si zi hesi homa dasinaga sa za si zi no regoda sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-raparobarema" data-astro-cid-futgqraz>raparobarema</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: problem</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を問題と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa raparobarema <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-dasinaga" data-astro-cid-d3rsstu7>dasinaga</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> no <a href="#w-regoda" data-astro-cid-d3rsstu7>regoda</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20raparobarema%20sa%20za%20si%20zi%20hesi%20homa%20dasinaga%20sa%20za%20si%20zi%20no%20regoda%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-re" data-pos="ArgumentRetriever" data-search="re
+項抽出
+項抽出。述語が表す事象そのものを抽出し、項句(名詞句)に変換する(「〜すること」)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-re" data-astro-cid-futgqraz>re</a></h2><span class="pos" style="--pos-color: 160 60 160" data-astro-cid-futgqraz>項抽出</span></header><p class="description" data-astro-cid-futgqraz>項抽出。述語が表す事象そのものを抽出し、項句(名詞句)に変換する(「〜すること」)。</p></article><article class="entry" id="w-rebaraka" data-pos="BinaryPredicate" data-search="rebaraka
+述語
+x1はx2を黒いと定義する。
+black
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rebaraka" data-astro-cid-futgqraz>rebaraka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: black</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を黒いと定義する。</p></article><article class="entry" id="w-rebaru" data-pos="BinaryPredicate" data-search="rebaru
+述語
+x1はx2を青いと定義する。
+blue
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rebaru" data-astro-cid-futgqraz>rebaru</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: blue</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を青いと定義する。</p></article><article class="entry" id="w-regarena" data-pos="BinaryPredicate" data-search="regarena
+述語
+x1はx2を緑色と定義する。
+green
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-regarena" data-astro-cid-futgqraz>regarena</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: green</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を緑色と定義する。</p></article><article class="entry" id="w-regoda" data-pos="BinaryPredicate" data-search="regoda
+述語
+x1はx2を良いと定義する。
+good
+
+悪いと定義する
+no regoda sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-regoda" data-astro-cid-futgqraz>regoda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: good</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を良いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>悪いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no regoda <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rehasata" data-pos="BinaryPredicate" data-search="rehasata
+述語
+x1はx2を速いと定義する。
+fast
+
+遅いと定義する
+no rehasata sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehasata" data-astro-cid-futgqraz>rehasata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: fast</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を速いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>遅いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rehasata <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rehebi" data-pos="BinaryPredicate" data-search="rehebi
+述語
+x1はx2を重いと定義する。
+heavy
+
+(重さが)軽いと定義する
+no rehebi sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehebi" data-astro-cid-futgqraz>rehebi</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: heavy</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を重いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>(重さが)軽いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rehebi <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rehero" data-pos="BinaryPredicate" data-search="rehero
+述語
+x1はx2を黄色と定義する。
+yellow
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehero" data-astro-cid-futgqraz>rehero</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: yellow</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を黄色と定義する。</p></article><article class="entry" id="w-rehi" data-pos="BinaryPredicate" data-search="rehi
+述語
+x1はx2を(位置・程度が)高いと定義する。
+high
+
+(位置・程度が)低いと定義する
+no rehi sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehi" data-astro-cid-futgqraz>rehi</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: high</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(位置・程度が)高いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>(位置・程度が)低いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rehi <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rehite" data-pos="BinaryPredicate" data-search="rehite
+述語
+x1はx2を白いと定義する。
+white
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehite" data-astro-cid-futgqraz>rehite</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: white</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を白いと定義する。</p></article><article class="entry" id="w-rehota" data-pos="BinaryPredicate" data-search="rehota
+述語
+x1はx2を熱い/暑いと定義する。
+hot
+
+冷たい/寒いと定義する
+no rehota sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehota" data-astro-cid-futgqraz>rehota</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hot</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を熱い/暑いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>冷たい/寒いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rehota <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rehura" data-pos="BinaryPredicate" data-search="rehura
+述語
+x1はx2を満ちている/いっぱいのと定義する。
+full
+
+空(から)と定義する
+no rehura sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rehura" data-astro-cid-futgqraz>rehura</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: full</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を満ちている/いっぱいのと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>空(から)と定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rehura <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rene" data-pos="BinaryPredicate" data-search="rene
+述語
+x1はx2を新しいと定義する。
+new
+
+古いと定義する
+no rene sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rene" data-astro-cid-futgqraz>rene</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: new</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を新しいと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>古いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no rene <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-rereda" data-pos="BinaryPredicate" data-search="rereda
+述語
+x1はx2を赤いと定義する。
+red
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rereda" data-astro-cid-futgqraz>rereda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: red</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を赤いと定義する。</p></article><article class="entry" id="w-reronaga" data-pos="BinaryPredicate" data-search="reronaga
+述語
+x1はx2を(距離・時間が)長いと定義する。
+long
+
+短いと定義する
+no reronaga sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-reronaga" data-astro-cid-futgqraz>reronaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: long</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(距離・時間が)長いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>短いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no reronaga <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-resamara" data-pos="BinaryPredicate" data-search="resamara
+述語
+x1はx2を小さいと定義する。
+small
+
+大きいと定義する
+no resamara sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-resamara" data-astro-cid-futgqraz>resamara</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: small</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を小さいと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>大きいと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no resamara <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-resame" data-pos="BinaryPredicate" data-search="resame
+述語
+x1はx2を同じ(均一な)と定義する。
+same
+
+異なる(別個の)と定義する
+no resame sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-resame" data-astro-cid-futgqraz>resame</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: same</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を同じ(均一な)と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>異なる(別個の)と定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no resame <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-resataronaga" data-pos="BinaryPredicate" data-search="resataronaga
+述語
+x1はx2を強いと定義する。
+strong
+
+弱いと定義する
+no resataronaga sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-resataronaga" data-astro-cid-futgqraz>resataronaga</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: strong</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を強いと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>弱いと定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no resataronaga <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-retaru" data-pos="BinaryPredicate" data-search="retaru
+述語
+x1はx2を真実/正しいと定義する。
+true
+
+偽/間違っていると定義する
+no retaru sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-retaru" data-astro-cid-futgqraz>retaru</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: true</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を真実/正しいと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>偽/間違っていると定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no retaru <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-ri" data-pos="ArgumentRetriever" data-search="ri
+項抽出
+項抽出。述語の第二項(x2)を抽出し、項句(名詞句)に変換する。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ri" data-astro-cid-futgqraz>ri</a></h2><span class="pos" style="--pos-color: 160 60 160" data-astro-cid-futgqraz>項抽出</span></header><p class="description" data-astro-cid-futgqraz>項抽出。述語の第二項(x2)を抽出し、項句(名詞句)に変換する。</p></article><article class="entry" id="w-rihorada" data-pos="BinaryPredicate" data-search="rihorada
+述語
+x1はx2を言葉と定義する。
+word
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rihorada" data-astro-cid-futgqraz>rihorada</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: word</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を言葉と定義する。</p></article><article class="entry" id="w-riname" data-pos="BinaryPredicate" data-search="riname
+述語
+x1はx2を名前と定義する。
+name
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-riname" data-astro-cid-futgqraz>riname</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: name</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を名前と定義する。</p></article><article class="entry" id="w-riparata" data-pos="BinaryPredicate" data-search="riparata
+述語
+x1はx2を部分と定義する。
+part
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-riparata" data-astro-cid-futgqraz>riparata</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: part</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を部分と定義する。</p></article><article class="entry" id="w-ronesa" data-pos="BinaryPredicate" data-search="ronesa
+述語
+x1はx2をにゅーす/知らせと定義する。
+news
+ze ta za ta zi hehezu hesa ronesa sa za si zi hesi homa rihorada sa za si zi rene sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ronesa" data-astro-cid-futgqraz>ronesa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: news</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をニュース/知らせと定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>定義</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-ta" data-astro-cid-d3rsstu7>ta</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a> hesa ronesa <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> hesi <a href="#w-homa" data-astro-cid-d3rsstu7>homa</a> <a href="#w-rihorada" data-astro-cid-d3rsstu7>rihorada</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a> <a href="#w-rene" data-astro-cid-d3rsstu7>rene</a> <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code><a class="editor-link" href="/editor/?text=ze%20ta%20za%20ta%20zi%20hehezu%20hesa%20ronesa%20sa%20za%20si%20zi%20hesi%20homa%20rihorada%20sa%20za%20si%20zi%20rene%20sa%20za%20si%20zi" title="エディタで開く" aria-label="エディタで開く" data-astro-cid-d3rsstu7>▶</a></dd></dl></article><article class="entry" id="w-rosatori" data-pos="BinaryPredicate" data-search="rosatori
+述語
+x1はx2を物語と定義する。
+story
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rosatori" data-astro-cid-futgqraz>rosatori</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: story</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を物語と定義する。</p></article><article class="entry" id="w-ruhage" data-pos="BinaryPredicate" data-search="ruhage
+述語
+x1はx2を年齢/年齢的な成熟度と定義する。
+age
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ruhage" data-astro-cid-futgqraz>ruhage</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: age</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を年齢/年齢的な成熟度と定義する。</p></article><article class="entry" id="w-rukopare" data-pos="BinaryPredicate" data-search="rukopare
+述語
+x1はx2を(2人の)組/かっぷると定義する。
+couple
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rukopare" data-astro-cid-futgqraz>rukopare</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: couple</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(2人の)組/カップルと定義する。</p></article><article class="entry" id="w-rumone" data-pos="BinaryPredicate" data-search="rumone
+述語
+x1はx2をお金と定義する。
+money
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-rumone" data-astro-cid-futgqraz>rumone</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: money</span></header><p class="description" data-astro-cid-futgqraz>x1はx2をお金と定義する。</p></article><article class="entry" id="w-runumabera" data-pos="BinaryPredicate" data-search="runumabera
+述語
+x1はx2を数と定義する。
+number
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-runumabera" data-astro-cid-futgqraz>runumabera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: number</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を数と定義する。</p></article><article class="entry" id="w-sa" data-pos="CaseLabel" data-search="sa
+格標識
+主格。述語の第一項(x1)を示す。二項述語の項構造に対応する必須格。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sa" data-astro-cid-futgqraz>sa</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>主格。述語の第一項(x1)を示す。二項述語の項構造に対応する必須格。</p></article><article class="entry" id="w-se" data-pos="TypeOverride" data-search="se
+型の上書き
+型の上書き。格標識(`sa`/`si`/`su[cv]`)の直後・項句の直前に置く任意のとーくんで、その項を型検査の対象から除外する。比喩・見立て表現用。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-se" data-astro-cid-futgqraz>se</a></h2><span class="pos" style="--pos-color: 60 200 120" data-astro-cid-futgqraz>型の上書き</span></header><p class="description" data-astro-cid-futgqraz>型の上書き。格標識(<code class="lang" data-astro-cid-d3rsstu7><a href="#w-sa" data-astro-cid-d3rsstu7>sa</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-si" data-astro-cid-d3rsstu7>si</a></code>/<code class="lang" data-astro-cid-d3rsstu7>su[CV]</code>)の直後・項句の直前に置く任意のトークンで、その項を型検査の対象から除外する。比喩・見立て表現用。</p></article><article class="entry" id="w-si" data-pos="CaseLabel" data-search="si
+格標識
+対格。述語の第二項(x2)を示す。二項述語の項構造に対応する必須格。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-si" data-astro-cid-futgqraz>si</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>対格。述語の第二項(x2)を示す。二項述語の項構造に対応する必須格。</p></article><article class="entry" id="w-sube" data-pos="CaseLabel" data-search="sube
+格標識
+奪格(人間起点格)。だれから、だれの。付加詞で省略可、x1は生物(`bv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sube" data-astro-cid-futgqraz>sube</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>奪格(人間起点格)。だれから、だれの。付加詞で省略可、x1は生物(<code class="lang" data-astro-cid-d3rsstu7>bV</code>)。</p></article><article class="entry" id="w-subo" data-pos="CaseLabel" data-search="subo
+格標識
+与格(人間目標格)。だれまで、だれに。付加詞で省略可、x1は生物(`bv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-subo" data-astro-cid-futgqraz>subo</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>与格(人間目標格)。だれまで、だれに。付加詞で省略可、x1は生物(<code class="lang" data-astro-cid-d3rsstu7>bV</code>)。</p></article><article class="entry" id="w-subu" data-pos="CaseLabel" data-search="subu
+格標識
+随伴格。だれと。付加詞で省略可、x1は生物(`bv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-subu" data-astro-cid-futgqraz>subu</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>随伴格。だれと。付加詞で省略可、x1は生物(<code class="lang" data-astro-cid-d3rsstu7>bV</code>)。</p></article><article class="entry" id="w-sudu" data-pos="CaseLabel" data-search="sudu
+格標識
+具格。何々を使って。付加詞で省略可、x1は人工物(`dv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sudu" data-astro-cid-futgqraz>sudu</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>具格。何々を使って。付加詞で省略可、x1は人工物(<code class="lang" data-astro-cid-d3rsstu7>dV</code>)。</p></article><article class="entry" id="w-suge" data-pos="CaseLabel" data-search="suge
+格標識
+時間起点格。いつから。付加詞で省略可、x1は指示代名詞(空間・時間対応のもの)、`ziv`(時間関係)、または`zuv`(時間の尺度)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-suge" data-astro-cid-futgqraz>suge</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>時間起点格。いつから。付加詞で省略可、x1は指示代名詞(空間・時間対応のもの)、<code class="lang" data-astro-cid-d3rsstu7>ziV</code>(時間関係)、または<code class="lang" data-astro-cid-d3rsstu7>zuV</code>(時間の尺度)。</p></article><article class="entry" id="w-sugi" data-pos="CaseLabel" data-search="sugi
+格標識
+時間格。いつ。付加詞で省略可、x1は指示代名詞、`ziv`、または`zuv`。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sugi" data-astro-cid-futgqraz>sugi</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>時間格。いつ。付加詞で省略可、x1は指示代名詞、<code class="lang" data-astro-cid-d3rsstu7>ziV</code>、または<code class="lang" data-astro-cid-d3rsstu7>zuV</code>。</p></article><article class="entry" id="w-sugo" data-pos="CaseLabel" data-search="sugo
+格標識
+時間目標格。いつまで。付加詞で省略可、x1は指示代名詞、`ziv`、または`zuv`。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sugo" data-astro-cid-futgqraz>sugo</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>時間目標格。いつまで。付加詞で省略可、x1は指示代名詞、<code class="lang" data-astro-cid-d3rsstu7>ziV</code>、または<code class="lang" data-astro-cid-d3rsstu7>zuV</code>。</p></article><article class="entry" id="w-sune" data-pos="CaseLabel" data-search="sune
+格標識
+空間起点格。どこから。付加詞で省略可、x1は指示代名詞、または`zav`。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sune" data-astro-cid-futgqraz>sune</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>空間起点格。どこから。付加詞で省略可、x1は指示代名詞、または<code class="lang" data-astro-cid-d3rsstu7>zaV</code>。</p></article><article class="entry" id="w-suni" data-pos="CaseLabel" data-search="suni
+格標識
+空間格。どこで。付加詞で省略可、x1は指示代名詞、または`zav`(空間関係)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-suni" data-astro-cid-futgqraz>suni</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>空間格。どこで。付加詞で省略可、x1は指示代名詞、または<code class="lang" data-astro-cid-d3rsstu7>zaV</code>(空間関係)。</p></article><article class="entry" id="w-suno" data-pos="CaseLabel" data-search="suno
+格標識
+空間目標格。どこまで。付加詞で省略可、x1は指示代名詞、または`zav`。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-suno" data-astro-cid-futgqraz>suno</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>空間目標格。どこまで。付加詞で省略可、x1は指示代名詞、または<code class="lang" data-astro-cid-d3rsstu7>zaV</code>。</p></article><article class="entry" id="w-sute" data-pos="CaseLabel" data-search="sute
+格標識
+原因格(理由起点格)。何々のせいで。付加詞で省略可、x1は抽象概念(`gv|mv|rv|zv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-sute" data-astro-cid-futgqraz>sute</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>原因格(理由起点格)。何々のせいで。付加詞で省略可、x1は抽象概念(<code class="lang" data-astro-cid-d3rsstu7>gV|mV|rV|zV</code>)。</p></article><article class="entry" id="w-suto" data-pos="CaseLabel" data-search="suto
+格標識
+目的格(理由目標格)。何々のために。付加詞で省略可、x1は抽象概念(`gv|mv|rv|zv`)。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-suto" data-astro-cid-futgqraz>suto</a></h2><span class="pos" style="--pos-color: 60 160 180" data-astro-cid-futgqraz>格標識</span></header><p class="description" data-astro-cid-futgqraz>目的格(理由目標格)。何々のために。付加詞で省略可、x1は抽象概念(<code class="lang" data-astro-cid-d3rsstu7>gV|mV|rV|zV</code>)。</p></article><article class="entry" id="w-ta" data-pos="Quantifier" data-search="ta
+量化詞
+量化詞:すべての。様相の必然としても使う。`ze`の量化子宣言では全称量化(∀)としても使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ta" data-astro-cid-futgqraz>ta</a></h2><span class="pos" style="--pos-color: 60 170 170" data-astro-cid-futgqraz>量化詞</span></header><p class="description" data-astro-cid-futgqraz>量化詞:すべての。様相の必然としても使う。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a></code>の量化子宣言では全称量化(∀)としても使う。</p></article><article class="entry" id="w-te" data-pos="Quantifier" data-search="te
+量化詞
+量化詞:多くの。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-te" data-astro-cid-futgqraz>te</a></h2><span class="pos" style="--pos-color: 60 170 170" data-astro-cid-futgqraz>量化詞</span></header><p class="description" data-astro-cid-futgqraz>量化詞:多くの。</p></article><article class="entry" id="w-ti" data-pos="Quantifier" data-search="ti
+量化詞
+量化詞:半分の。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ti" data-astro-cid-futgqraz>ti</a></h2><span class="pos" style="--pos-color: 60 170 170" data-astro-cid-futgqraz>量化詞</span></header><p class="description" data-astro-cid-futgqraz>量化詞:半分の。</p></article><article class="entry" id="w-to" data-pos="Quantifier" data-search="to
+量化詞
+量化詞:少なくとも1つは存在する。様相の可能としても使う。`ze`の量化子宣言では存在量化(∃)としても使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-to" data-astro-cid-futgqraz>to</a></h2><span class="pos" style="--pos-color: 60 170 170" data-astro-cid-futgqraz>量化詞</span></header><p class="description" data-astro-cid-futgqraz>量化詞:少なくとも1つは存在する。様相の可能としても使う。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a></code>の量化子宣言では存在量化(∃)としても使う。</p></article><article class="entry" id="w-za" data-pos="Argument" data-search="za
+項
+定義用のすきーま変数(x1)。 `ze`の量化子宣言(`ta`/`to`)で明示的に宣言しない限り使えない(未束縛だと型検査でえらーになる)。`me`/`be`/`ge`と同じく指示物の種類を限定しないが、定数ではなく述語論理上の変数として扱われる点が異なる。辞書の`definition`を計画言語自身で書いて新語を既知語で言い換える際に使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-za" data-astro-cid-futgqraz>za</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>定義用のスキーマ変数(x1)。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-ze" data-astro-cid-d3rsstu7>ze</a></code>の量化子宣言(<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ta" data-astro-cid-d3rsstu7>ta</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-to" data-astro-cid-d3rsstu7>to</a></code>)で明示的に宣言しない限り使えない(未束縛だと型検査でエラーになる)。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-me" data-astro-cid-d3rsstu7>me</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-be" data-astro-cid-d3rsstu7>be</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ge" data-astro-cid-d3rsstu7>ge</a></code>と同じく指示物の種類を限定しないが、定数ではなく述語論理上の変数として扱われる点が異なる。辞書の<code class="lang" data-astro-cid-d3rsstu7>definition</code>を計画言語自身で書いて新語を既知語で言い換える際に使う。</p></article><article class="entry" id="w-zahona" data-pos="BinaryPredicate" data-search="zahona
+述語
+x1はx2を上/表面(空間関係)と定義する。
+on
+
+下/底(空間関係)と定義する
+no zahona sa za si zi" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zahona" data-astro-cid-futgqraz>zahona</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: on</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を上/表面(空間関係)と定義する。</p><dl class="details" data-astro-cid-futgqraz><dt data-astro-cid-futgqraz>下/底(空間関係)と定義する</dt><dd data-astro-cid-futgqraz><code class="lang" data-astro-cid-d3rsstu7>no zahona <a href="#w-sa" data-astro-cid-d3rsstu7>sa</a> <a href="#w-za" data-astro-cid-d3rsstu7>za</a> <a href="#w-si" data-astro-cid-d3rsstu7>si</a> <a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code></dd></dl></article><article class="entry" id="w-ze" data-pos="UniversalMarker" data-search="ze
+全称量化まーかー
+全称量化まーかー。文頭に置き、直後に`za`/`zi`の量化子宣言(`ta`=∀、`to`=∃)を必要な数だけ並べてから平叙文を続ける。 辞書の`definition`を計画言語自身で書いて新語を既知語で定義する際、`za`/`zi`と`hehezu`とともに使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-ze" data-astro-cid-futgqraz>ze</a></h2><span class="pos" style="--pos-color: 210 210 50" data-astro-cid-futgqraz>全称量化マーカー</span></header><p class="description" data-astro-cid-futgqraz>全称量化マーカー。文頭に置き、直後に<code class="lang" data-astro-cid-d3rsstu7><a href="#w-za" data-astro-cid-d3rsstu7>za</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code>の量化子宣言(<code class="lang" data-astro-cid-d3rsstu7><a href="#w-ta" data-astro-cid-d3rsstu7>ta</a></code>=∀、<code class="lang" data-astro-cid-d3rsstu7><a href="#w-to" data-astro-cid-d3rsstu7>to</a></code>=∃)を必要な数だけ並べてから平叙文を続ける。 辞書の<code class="lang" data-astro-cid-d3rsstu7>definition</code>を計画言語自身で書いて新語を既知語で定義する際、<code class="lang" data-astro-cid-d3rsstu7><a href="#w-za" data-astro-cid-d3rsstu7>za</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-zi" data-astro-cid-d3rsstu7>zi</a></code>と<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hehezu" data-astro-cid-d3rsstu7>hehezu</a></code>とともに使う。</p></article><article class="entry" id="w-zi" data-pos="Argument" data-search="zi
+項
+定義用のすきーま変数(x2)。 `za`と対になるx2用のすきーま変数。用法は`za`を参照。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zi" data-astro-cid-futgqraz>zi</a></h2><span class="pos" style="--pos-color: 80 130 220" data-astro-cid-futgqraz>項</span></header><p class="description" data-astro-cid-futgqraz>定義用のスキーマ変数(x2)。 <code class="lang" data-astro-cid-d3rsstu7><a href="#w-za" data-astro-cid-d3rsstu7>za</a></code>と対になるx2用のスキーマ変数。用法は<code class="lang" data-astro-cid-d3rsstu7><a href="#w-za" data-astro-cid-d3rsstu7>za</a></code>を参照。</p></article><article class="entry" id="w-zihita" data-pos="BinaryPredicate" data-search="zihita
+述語
+x1はx2を(基準より)前の時点と定義する。 てんす`hita`(過去)の語根を流用した内部派生語で、英語からの借用語ではない。`suge`/`sugi`格と`du`で「n日前」のように使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zihita" data-astro-cid-futgqraz>zihita</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(基準より)前の時点と定義する。 テンス<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hita" data-astro-cid-d3rsstu7>hita</a></code>(過去)の語根を流用した内部派生語で、英語からの借用語ではない。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-suge" data-astro-cid-d3rsstu7>suge</a></code>/<code class="lang" data-astro-cid-d3rsstu7><a href="#w-sugi" data-astro-cid-d3rsstu7>sugi</a></code>格と<code class="lang" data-astro-cid-d3rsstu7><a href="#w-du" data-astro-cid-d3rsstu7>du</a></code>で「N日前」のように使う。</p></article><article class="entry" id="w-zihitu" data-pos="BinaryPredicate" data-search="zihitu
+述語
+x1はx2を(基準より)後の時点と定義する。 てんす`hitu`(未来)の語根を流用した内部派生語で、英語からの借用語ではない。`sugi`格と`du`で「n日後」のように使う。
+
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zihitu" data-astro-cid-futgqraz>zihitu</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(基準より)後の時点と定義する。 テンス<code class="lang" data-astro-cid-d3rsstu7><a href="#w-hitu" data-astro-cid-d3rsstu7>hitu</a></code>(未来)の語根を流用した内部派生語で、英語からの借用語ではない。<code class="lang" data-astro-cid-d3rsstu7><a href="#w-sugi" data-astro-cid-d3rsstu7>sugi</a></code>格と<code class="lang" data-astro-cid-d3rsstu7><a href="#w-du" data-astro-cid-d3rsstu7>du</a></code>で「N日後」のように使う。</p></article><article class="entry" id="w-zuda" data-pos="BinaryPredicate" data-search="zuda
+述語
+x1はx2を日(1日)と定義する。
+day
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuda" data-astro-cid-futgqraz>zuda</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: day</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を日(1日)と定義する。</p></article><article class="entry" id="w-zudate" data-pos="BinaryPredicate" data-search="zudate
+述語
+x1はx2を(暦の)日付と定義する。
+date
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zudate" data-astro-cid-futgqraz>zudate</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: date</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を(暦の)日付と定義する。</p></article><article class="entry" id="w-zuharahasa" data-pos="BinaryPredicate" data-search="zuharahasa
+述語
+x1はx2を常に/いつも(という時間)と定義する。
+always
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuharahasa" data-astro-cid-futgqraz>zuharahasa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: always</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を常に/いつも(という時間)と定義する。</p></article><article class="entry" id="w-zuheka" data-pos="BinaryPredicate" data-search="zuheka
+述語
+x1はx2を週(1週間)と定義する。
+week
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuheka" data-astro-cid-futgqraz>zuheka</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: week</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を週(1週間)と定義する。</p></article><article class="entry" id="w-zuhera" data-pos="BinaryPredicate" data-search="zuhera
+述語
+x1はx2を年(1年)と定義する。
+year
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuhera" data-astro-cid-futgqraz>zuhera</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: year</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を年(1年)と定義する。</p></article><article class="entry" id="w-zuhora" data-pos="BinaryPredicate" data-search="zuhora
+述語
+x1はx2を時間(1時間)と定義する。
+hour
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuhora" data-astro-cid-futgqraz>zuhora</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: hour</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を時間(1時間)と定義する。</p></article><article class="entry" id="w-zuminute" data-pos="BinaryPredicate" data-search="zuminute
+述語
+x1はx2を分(1分)と定義する。
+minute
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zuminute" data-astro-cid-futgqraz>zuminute</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: minute</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を分(1分)と定義する。</p></article><article class="entry" id="w-zumonasa" data-pos="BinaryPredicate" data-search="zumonasa
+述語
+x1はx2を月(1か月)と定義する。
+month
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zumonasa" data-astro-cid-futgqraz>zumonasa</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: month</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を月(1か月)と定義する。</p></article><article class="entry" id="w-zunita" data-pos="BinaryPredicate" data-search="zunita
+述語
+x1はx2を夜と定義する。
+night
+" data-astro-cid-futgqraz><header class="entry-head" data-astro-cid-futgqraz><h2 class="headword" data-astro-cid-futgqraz><a href="#w-zunita" data-astro-cid-futgqraz>zunita</a></h2><span class="pos" style="--pos-color: 80 180 80" data-astro-cid-futgqraz>述語</span><span class="origin" data-astro-cid-futgqraz>借用元: night</span></header><p class="description" data-astro-cid-futgqraz>x1はx2を夜と定義する。</p></article></main><footer class="site-footer" data-astro-cid-hkbrpulz><div class="container" data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>Artificial Language</a></div></footer></body></html><script type="module">function e(e){return e.normalize(`NFKC`).toLowerCase().replace(/[ァ-ヶ]/g,e=>String.fromCharCode(e.charCodeAt(0)-96))}function t(t,n){return e(n).split(/\s+/).filter(e=>e!==``).every(e=>t.includes(e))}var n=document.getElementById(`dict-query`),r=document.getElementById(`dict-pos`),i=document.getElementById(`dict-count`),a=document.getElementById(`dict-empty`),o=[...document.querySelectorAll(`.entry`)];function s(){let e=0;for(let i of o){let a=(r.value===``||i.dataset.pos===r.value)&&t(i.dataset.search??``,n.value);i.hidden=!a,a&&e++}i.textContent=`${e} 語`,a.hidden=e>0;let s=new URLSearchParams;n.value&&s.set(`q`,n.value),r.value&&s.set(`pos`,r.value);let c=s.toString();history.replaceState(null,``,`${location.pathname}${c?`?${c}`:``}${location.hash}`)}function c(){let e=location.hash?document.getElementById(decodeURIComponent(location.hash.slice(1))):null;e?.hidden&&(n.value=``,r.value=``,s(),e.scrollIntoView())}var l=new URLSearchParams(location.search);n.value=l.get(`q`)??``,r.value=l.get(`pos`)??``,s(),c(),n.addEventListener(`input`,s),r.addEventListener(`change`,s),window.addEventListener(`hashchange`,c);</script>

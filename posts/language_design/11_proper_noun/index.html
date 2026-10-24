@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-hkbrpulz><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="内容語は WordNet の分類に沿って第一音節を決め、語は英語から借用する。しかし人名・地名・団体名のような固有名詞は、この方法ではうまく扱えない。「太郎」や「東京」は既存の語を組み合わせて言い換えられるものではない。また、名前の持ち主は…"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>固有名詞 | Artificial Language</title><link rel="stylesheet" href="/_astro/_..Bkac0L6S.css"><style>:root{--bg:#fff;--bg-subtle:#f6f7f9;--fg:#1f2328;--fg-muted:#59636e;--border:#d8dee4;--accent:#3b5bdb;--accent-subtle:#edf2ff;--code-bg:#f6f8fa;color-scheme:light}@media (prefers-color-scheme:dark){:root{--bg:#16181d;--bg-subtle:#1e2128;--fg:#e3e6eb;--fg-muted:#9aa3ae;--border:#343a44;--accent:#8ca2ff;--accent-subtle:#222a45;--code-bg:#1e2128;color-scheme:dark}.astro-code,.astro-code span{color:var(--shiki-dark)!important;background-color:var(--shiki-dark-bg)!important}}*,:before,:after{box-sizing:border-box}body{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%;margin:0;font-family:system-ui,-apple-system,Hiragino Sans,Hiragino Kaku Gothic ProN,Noto Sans JP,Yu Gothic,Meiryo,sans-serif;font-size:16px;line-height:1.85}a{color:var(--accent)}.container{max-width:760px;margin:0 auto;padding:0 16px}.prose{overflow-wrap:anywhere}.prose h1{margin:0 0 32px;font-size:1.85rem;line-height:1.4}.prose h2{border-bottom:1px solid var(--border);margin:48px 0 16px;padding-bottom:6px;font-size:1.4rem;line-height:1.4}.prose h3{margin:32px 0 12px;font-size:1.15rem}.prose p,.prose ul,.prose ol{margin:0 0 16px}.prose li>ul,.prose li>ol{margin-bottom:0}.prose code{background:var(--code-bg);border-radius:4px;padding:.15em .35em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em}.prose pre{border-radius:6px;margin:0 0 16px;padding:14px 16px;line-height:1.6;overflow-x:auto}.prose pre code{background:0 0;padding:0}.prose blockquote{border-left:4px solid var(--border);color:var(--fg-muted);margin:0 0 16px;padding:0 16px}.prose table{border-collapse:collapse;max-width:100%;margin:0 0 16px;font-size:.9rem;line-height:1.6;display:block;overflow-x:auto}.prose th,.prose td{border:1px solid var(--border);vertical-align:top;padding:6px 12px}.prose th{background:var(--bg-subtle)}.prose a.editor-link,a.editor-link{vertical-align:.1em;border-radius:4px;margin-left:.3em;padding:0 .3em;font-size:.75em;text-decoration:none}.prose a.editor-link:hover,a.editor-link:hover{background:var(--accent-subtle)}.prose .katex-display{padding:4px 0;overflow:auto hidden}.prose .footnotes{color:var(--fg-muted);margin-top:48px;font-size:.875rem}.prose .footnotes h2{border:none;font-size:1rem}.site-header[data-astro-cid-hkbrpulz]{border-bottom:1px solid var(--border)}.header-inner[data-astro-cid-hkbrpulz]{justify-content:space-between;align-items:center;gap:16px;height:56px;display:flex}.site-title[data-astro-cid-hkbrpulz]{color:var(--fg);font-weight:700;text-decoration:none}nav[data-astro-cid-hkbrpulz]{gap:20px;display:flex}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]:hover{color:var(--accent)}main[data-astro-cid-hkbrpulz]{padding-top:32px;padding-bottom:64px}.site-footer[data-astro-cid-hkbrpulz]{border-top:1px solid var(--border);padding:24px 0;font-size:.875rem}.site-footer[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}
+</style></head><body data-astro-cid-hkbrpulz><header class="site-header" data-astro-cid-hkbrpulz><div class="container header-inner" data-astro-cid-hkbrpulz><a class="site-title" href="/" data-astro-cid-hkbrpulz>Artificial Language</a><nav data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>記事</a><a href="/dictionary/" data-astro-cid-hkbrpulz>辞書</a><a href="/editor/" data-astro-cid-hkbrpulz>エディタ</a></nav></div></header><main class="container" data-astro-cid-hkbrpulz><p class="post-series" data-astro-cid-vt34qafq><a href="/" data-astro-cid-vt34qafq>言語設計</a> #11</p><article class="prose" data-astro-cid-vt34qafq><h1 id="固有名詞">固有名詞</h1>
+<p>内容語は WordNet の分類に沿って第一音節を決め、語は英語から借用する。しかし人名・地名・団体名のような固有名詞は、この方法ではうまく扱えない。「太郎」や「東京」は既存の語を組み合わせて言い換えられるものではない。また、名前の持ち主はその響きや綴りに愛着を持っていることが多い。借用規則にかけてCV音節に変形してしまうと、その愛着のある響きや綴りが失われてしまう。</p>
+<p>そこでこの言語では固有名詞のための形を2つ用意した。1つは原語の綴りをそのまま埋め込む <code>he&#x3C;X> … hoho</code> で、もう1つはこの言語の音韻に合わせた1語の <code>t</code> で始まる語である。</p>
+<h2 id="hex--hoho-原語をそのまま埋め込む"><code>he&#x3C;X> … hoho</code>: 原語をそのまま埋め込む</h2>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>he&#x3C;X> &#x3C;原語の綴り・発音そのまま> hoho</span></span></code></pre>
+<p><code>he&#x3C;X></code> が開始マーカー、<code>hoho</code> が終了マーカーで、その間に原語の名前をそのまま書く。<code>&#x3C;X></code> には名詞を表す述語の第一音節のうち、固有名詞で使いそうな8種類を割り当てた。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>開始マーカー</th><th>対応する名詞のクラス</th><th>用途</th></tr></thead><tbody><tr><td><code>heba</code></td><td><code>ba</code> (人)</td><td>人名</td></tr><tr><td><code>hebi</code></td><td><code>bi</code> (動物)</td><td>動物名</td></tr><tr><td><code>heza</code></td><td><code>za</code> (空間関係)</td><td>地名</td></tr><tr><td><code>hezi</code></td><td><code>zi</code> (時間関係)</td><td>記念日</td></tr><tr><td><code>hemu</code></td><td><code>mu</code> (非生物の集団)</td><td>団体・組織・企業名</td></tr><tr><td><code>heda</code></td><td><code>da</code> (道具)</td><td>乗り物・装置の名前</td></tr><tr><td><code>hedi</code></td><td><code>di</code> (構造物)</td><td>建造物・ランドマークの名前</td></tr><tr><td><code>hedu</code></td><td><code>du</code> (その他人工物)</td><td>製品名・作品名・ブランド名</td></tr></tbody></table>
+<p>名詞の第一音節の分類をそのまま流用しているので、新しく覚えることはほとんどない。<code>heba</code> を見れば人名、<code>heza</code> を見れば地名だとわかる。</p>
+<p>マーカーに挟まれた区間は、この言語の音韻規則に一切従わない生の文字列として扱う。空白を含めてもよいし、アルファベット以外の文字も使える。<code>heba Yamada Jiro hoho</code> も <code>heza 東京 hoho</code><a href="/editor/?text=heza%20%E6%9D%B1%E4%BA%AC%20hoho" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> も1つの固有名詞である。発音するときは、この区間だけ元の言語に切り替えて(code-switching)読む。音韻規則の外に出ることで、名前の響きと綴りを正確に残せる。</p>
+<p><code>he&#x3C;X> … hoho</code> 全体は1つの項として振る舞い、<code>mi</code> などの代名詞と同じ位置に置ける。型検査では、<code>&#x3C;X></code> に対応する名詞のクラスと同じ型を持つ項として扱う。<code>heba</code> や <code>hebi</code> は生物なので、生物を要求する主格や随伴格にそのまま置ける。<code>heza</code> は空間、<code>hezi</code> は時間の型を持つので、空間格 <code>suni</code> や時間格 <code>sugi</code> を直接満たす。ふつうの名詞であれば「Xの中」「Xの近く」のような空間関係の名詞を経由しないと空間格に置けないが、地名はそれ自体が場所なのでこの手間を省いた。</p>
+<p>終了マーカー <code>hoho</code> は開始マーカーの種類によらず共通である。そのため、区間の中に空白で区切られた <code>hoho</code> という語を含めることはできない。また <code>he&#x3C;X> … hoho</code> の中に <code>he&#x3C;X> … hoho</code> を入れ子にすることもできない。</p>
+<h2 id="t-で始まる固有名詞-この言語になじんだ1語"><code>t</code> で始まる固有名詞: この言語になじんだ1語</h2>
+<p><code>he&#x3C;X> … hoho</code> は正確だが、マーカーを含めると長く、会話で何度も繰り返すには向かない。そこで、この言語の音韻に合わせた1語の固有名詞として、<code>t</code> で始まる語を使えるようにした。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>t&#x3C;V>[CV]+</span></span></code></pre>
+<p><code>t</code> の直後の母音で型を表す。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>先頭音節</th><th>型</th><th>用途</th></tr></thead><tbody><tr><td><code>ta</code></td><td>生物</td><td>人名・動物名</td></tr><tr><td><code>te</code></td><td>物理的実体</td><td>建造物・乗り物・製品の名前</td></tr><tr><td><code>ti</code></td><td>空間</td><td>地名</td></tr><tr><td><code>to</code></td><td>抽象概念</td><td>団体・組織・企業名</td></tr></tbody></table>
+<p>母音は a→e→i→o の順に、具体的なものから抽象的なものへ並べている。</p>
+<p>先頭音節より後ろは、CV音節の繰り返しになっていれば何でもよい。借用規則のような変換規則は設けず、どう綴るかは名前の持ち主が自由に決める。「次郎」なら <code>taziro</code>、「NASA」なら <code>tonasa</code> のようになる。こうして作った語は辞書にも登録しない。意味論上は、その語自体を名前とする定数として扱う。たとえば <code>parobe sa taziro si ba</code><a href="/editor/?text=parobe%20sa%20taziro%20si%20ba" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a>(次郎はあなたを愛している)は、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∃</mi><mi>e</mi><mi mathvariant="normal">.</mi><mo stretchy="false">(</mo><mtext>parobe</mtext><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo><mo>∧</mo><mtext>Agent</mtext><mo stretchy="false">(</mo><mi>e</mi><mo separator="true">,</mo><mtext>taziro</mtext><mo stretchy="false">)</mo><mo>∧</mo><mtext>Patient</mtext><mo stretchy="false">(</mo><mi>e</mi><mo separator="true">,</mo><mtext>ba</mtext><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\exists e.(\text{parobe}(e) \land \text{Agent}(e, \text{taziro}) \land \text{Patient}(e, \text{ba}))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mopen">(</span><span class="mord text"><span class="mord">parobe</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Agent</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">taziro</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Patient</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">ba</span></span><span class="mclose">))</span></span></span></span> になる。</p>
+<p>同じ名前でも、何を指すかで形が変わる点には注意が必要だ。土地としてのカナダは <code>tikanada</code> で、国家としてのカナダは <code>tokanada</code> になる。自然言語では「カナダ」の一語で土地と国家を曖昧に指しているが、この言語ではどちらの意味で使っているかを明示させる。</p>
+<h2 id="機能語数詞との棲み分け">機能語・数詞との棲み分け</h2>
+<p><code>t</code> で始まる語を固有名詞に割り当てたので、内容語の述語は <code>h</code>・<code>s</code>・<code>t</code> 以外の子音で始まることになる。<code>t</code> から始まる語は、量化子の <code>ta</code>/<code>te</code>/<code>ti</code>/<code>to</code> や数詞とも頭が重なる。量化子は2文字で、固有名詞は少なくとも4文字あるので長さで区別できる。数詞は唯一量化子で使われていない <code>tu</code> をマーカーにしており、固有名詞は <code>tu</code> を使わないので衝突しない。こうして <code>t</code> で始まる語は、2文字なら量化子、<code>tu</code> で始まれば数詞、それ以外は固有名詞と、文字列を見るだけで判別できる。</p>
+<h1 id="この言語の名前">この言語の名前</h1>
+<p>ここまででこの言語の名前を決めていなかった。言語名を決める前に他の人工言語名の由来について見ておく。エスペラントは作者のペンネームから来ている。Lojban (ロジバン)は <code>loj</code> が論理を表し、 <code>ban</code> が言語を表す「論理の言語」という意味である。Toki Pona (トキポナ) は <code>toki</code> が言語を表し、 <code>pona</code> が良いを表す「良い言語」という意味である。</p>
+<p>この言語の名前には「第2の言語」という意味を込めたい。仮にこの言語がうまくいっても母語に取って代わりたいわけではない。ある集団の母語になると、母語話者にとって扱いやすい言語変化が起きやすく、不規則変化が入りやすい。それは非母語話者からすると好ましくない。</p>
+<p>固有名詞を表すには2通りがあったが、短い方がいいので、 <code>t</code> から始まる1語にしたい。言語名は抽象概念なので、 <code>to</code> から始まる。言語を表す language (この言語では型を示す接頭辞 + ranaguge) と2番目を表す second (この言語では数字の2を表す se) を用いると、言語名は <code>torase</code> と定める。</p></article><aside class="editor-note" data-astro-cid-vt34qafq>例文は<a href="/editor/" data-astro-cid-vt34qafq>エディタ</a>に入力すると、構文木や診断を確認できます。</aside><nav data-astro-cid-hgp7mnje><a class="prev" href="/posts/language_design/10_number/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>← 前の記事</span><span data-astro-cid-hgp7mnje>数詞</span></a><a class="next" href="/posts/language_design/12_etc/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>次の記事 →</span><span data-astro-cid-hgp7mnje>例文</span></a></nav></main><footer class="site-footer" data-astro-cid-hkbrpulz><div class="container" data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>Artificial Language</a></div></footer></body></html>

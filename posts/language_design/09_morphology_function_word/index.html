@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-hkbrpulz><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ここまでは具体的な機能語の文字列については後回しにしていた。文字列を見るだけで内容語か機能語か区別できるようにしたい。具体的には h や s から始まる語、それ以外の子音から始まる2文字の語を機能語とする。機能語は内容語に比べ、出現頻度が高…"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>機能語 | Artificial Language</title><link rel="stylesheet" href="/_astro/_..Bkac0L6S.css"><style>:root{--bg:#fff;--bg-subtle:#f6f7f9;--fg:#1f2328;--fg-muted:#59636e;--border:#d8dee4;--accent:#3b5bdb;--accent-subtle:#edf2ff;--code-bg:#f6f8fa;color-scheme:light}@media (prefers-color-scheme:dark){:root{--bg:#16181d;--bg-subtle:#1e2128;--fg:#e3e6eb;--fg-muted:#9aa3ae;--border:#343a44;--accent:#8ca2ff;--accent-subtle:#222a45;--code-bg:#1e2128;color-scheme:dark}.astro-code,.astro-code span{color:var(--shiki-dark)!important;background-color:var(--shiki-dark-bg)!important}}*,:before,:after{box-sizing:border-box}body{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%;margin:0;font-family:system-ui,-apple-system,Hiragino Sans,Hiragino Kaku Gothic ProN,Noto Sans JP,Yu Gothic,Meiryo,sans-serif;font-size:16px;line-height:1.85}a{color:var(--accent)}.container{max-width:760px;margin:0 auto;padding:0 16px}.prose{overflow-wrap:anywhere}.prose h1{margin:0 0 32px;font-size:1.85rem;line-height:1.4}.prose h2{border-bottom:1px solid var(--border);margin:48px 0 16px;padding-bottom:6px;font-size:1.4rem;line-height:1.4}.prose h3{margin:32px 0 12px;font-size:1.15rem}.prose p,.prose ul,.prose ol{margin:0 0 16px}.prose li>ul,.prose li>ol{margin-bottom:0}.prose code{background:var(--code-bg);border-radius:4px;padding:.15em .35em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em}.prose pre{border-radius:6px;margin:0 0 16px;padding:14px 16px;line-height:1.6;overflow-x:auto}.prose pre code{background:0 0;padding:0}.prose blockquote{border-left:4px solid var(--border);color:var(--fg-muted);margin:0 0 16px;padding:0 16px}.prose table{border-collapse:collapse;max-width:100%;margin:0 0 16px;font-size:.9rem;line-height:1.6;display:block;overflow-x:auto}.prose th,.prose td{border:1px solid var(--border);vertical-align:top;padding:6px 12px}.prose th{background:var(--bg-subtle)}.prose a.editor-link,a.editor-link{vertical-align:.1em;border-radius:4px;margin-left:.3em;padding:0 .3em;font-size:.75em;text-decoration:none}.prose a.editor-link:hover,a.editor-link:hover{background:var(--accent-subtle)}.prose .katex-display{padding:4px 0;overflow:auto hidden}.prose .footnotes{color:var(--fg-muted);margin-top:48px;font-size:.875rem}.prose .footnotes h2{border:none;font-size:1rem}.site-header[data-astro-cid-hkbrpulz]{border-bottom:1px solid var(--border)}.header-inner[data-astro-cid-hkbrpulz]{justify-content:space-between;align-items:center;gap:16px;height:56px;display:flex}.site-title[data-astro-cid-hkbrpulz]{color:var(--fg);font-weight:700;text-decoration:none}nav[data-astro-cid-hkbrpulz]{gap:20px;display:flex}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]:hover{color:var(--accent)}main[data-astro-cid-hkbrpulz]{padding-top:32px;padding-bottom:64px}.site-footer[data-astro-cid-hkbrpulz]{border-top:1px solid var(--border);padding:24px 0;font-size:.875rem}.site-footer[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}
+</style></head><body data-astro-cid-hkbrpulz><header class="site-header" data-astro-cid-hkbrpulz><div class="container header-inner" data-astro-cid-hkbrpulz><a class="site-title" href="/" data-astro-cid-hkbrpulz>Artificial Language</a><nav data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>記事</a><a href="/dictionary/" data-astro-cid-hkbrpulz>辞書</a><a href="/editor/" data-astro-cid-hkbrpulz>エディタ</a></nav></div></header><main class="container" data-astro-cid-hkbrpulz><p class="post-series" data-astro-cid-vt34qafq><a href="/" data-astro-cid-vt34qafq>言語設計</a> #09</p><article class="prose" data-astro-cid-vt34qafq><h1 id="機能語">機能語</h1>
+<p>ここまでは具体的な機能語の文字列については後回しにしていた。文字列を見るだけで内容語か機能語か区別できるようにしたい。具体的には <code>h</code> や <code>s</code> から始まる語、それ以外の子音から始まる2文字の語を機能語とする。機能語は内容語に比べ、出現頻度が高くなりやすいため短い語を割り当てられるようにする。この設計のデメリットは聞き間違いに弱く、頑健性が低いことである。特に同じグループは習得しやすいように文字列も似ている。同じグループであれば統語的にも同じ位置に現れることができるので、統語的な制約が頑健性を高めるわけではない。</p>
+<h2 id="格標示">格標示</h2>
+<ul>
+<li><code>sa</code> (主格) — 動詞のx1(第一項)</li>
+<li><code>si</code> (対格) — 動詞のx2(第二項)</li>
+</ul>
+<p>付加詞の格は意味領域ごとにグループ化される。採用した格標示・意味役割はこの言語の特徴である型検査の設計と相性がよいものを選んだ。</p>
+<p>生物系のグループは型に <code>bV</code> を指定する。</p>
+<ul>
+<li><code>subu</code> (随伴格) — だれと</li>
+<li><code>sube</code> (奪格・人間起点格) — だれから、だれの</li>
+<li><code>subo</code> (与格・人間目標格) — だれまで、だれに</li>
+</ul>
+<p>道具系のグループは型に <code>dV|nV</code> を指定する。</p>
+<ul>
+<li><code>sudu</code> (具格) — 何々を使って</li>
+</ul>
+<p>抽象系のグループは型に <code>gV|mV|rV</code> を指定する。</p>
+<ul>
+<li><code>sute</code> (原因格・理由起点格) — 何々のせいで</li>
+<li><code>suto</code> (目的格・理由目標格) — 何々のために</li>
+</ul>
+<p>空間系のグループは型に <code>za|ze</code> を指定する。</p>
+<ul>
+<li><code>suni</code> (空間格) — どこで</li>
+<li><code>sune</code> (空間起点格) — どこから</li>
+<li><code>suno</code> (空間目標格) — どこまで</li>
+</ul>
+<p>時間系のグループは型に <code>zi|zu</code> を指定する。</p>
+<ul>
+<li><code>sugi</code> (時間格) — いつ</li>
+<li><code>suge</code> (時間起点格) — いつから</li>
+<li><code>sugo</code> (時間目標格) — いつまで</li>
+</ul>
+<p>空間・時間系のグループの型のために、WordNet の分類で <code>z</code> から始まるものを特別に設計している。</p>
+<h2 id="論理演算子">論理演算子</h2>
+<h3 id="結合子">結合子</h3>
+<ul>
+<li>命題
+<ul>
+<li><code>homa</code> (and)</li>
+<li><code>homi</code> (or)</li>
+<li><code>homu</code> (xor)</li>
+</ul>
+</li>
+<li>述語・項
+<ul>
+<li><code>hoba</code> (and)</li>
+<li><code>hobi</code> (or)</li>
+<li><code>hobu</code> (xor)</li>
+</ul>
+</li>
+<li>述語・項の否定
+<ul>
+<li><code>ne</code></li>
+</ul>
+</li>
+</ul>
+<p>命題、述語・項で結合子を別に定義しているのは、LL(1)文法の範囲に収めるためである。この言語では TAM は省略可能なため命題と述語の結合子を区別しないといけない。</p>
+<h3 id="量化子">量化子</h3>
+<ul>
+<li><code>ta</code> (すべての)</li>
+<li><code>te</code> (多くの)</li>
+<li><code>ti</code> (半分の)</li>
+<li><code>to</code> (少なくとも1つは存在する)</li>
+</ul>
+<p><code>ta</code>(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi></mrow><annotation encoding="application/x-tex">\forall</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span></span></span></span> に対応)・<code>to</code>(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∃</mi></mrow><annotation encoding="application/x-tex">\exist</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span></span></span></span> に対応)は一階述語論理の量化子である。<code>te</code> や <code>ti</code> は一階述語論理では表現できないがあった方が便利だろうと思い採用した。</p>
+<h2 id="tam">TAM</h2>
+<h3 id="モダリティ">モダリティ</h3>
+<h4 id="量化力">量化力</h4>
+<p>量化子の <code>ta</code> / <code>to</code> を、可能世界に対する量化として再利用する。</p>
+<ul>
+<li><code>ta</code> (必然)</li>
+<li><code>to</code> (可能)</li>
+</ul>
+<h4 id="モーダルベース">モーダルベース</h4>
+<ul>
+<li><code>hapa</code> (認識)</li>
+<li><code>hapi</code> (義務)</li>
+<li><code>hapu</code> (能力・状況)</li>
+</ul>
+<h3 id="テンス">テンス</h3>
+<ul>
+<li><code>hita</code> (過去)</li>
+<li><code>hiti</code> (現在)</li>
+<li><code>hitu</code> (未来)</li>
+</ul>
+<h3 id="アスペクト">アスペクト</h3>
+<ul>
+<li><code>huda</code> (未然)</li>
+<li><code>hude</code> (開始)</li>
+<li><code>hudida</code> (進行)</li>
+<li><code>hudidi</code> (習慣)</li>
+<li><code>hudidu</code> (反復)</li>
+<li><code>hudo</code> (終了)</li>
+<li><code>hudu</code> (事後)</li>
+</ul>
+<h3 id="否定">否定</h3>
+<ul>
+<li><code>hane</code> (モダリティの否定)</li>
+<li><code>hine</code> (テンスの否定)</li>
+<li><code>hune</code> (アスペクトの否定)</li>
+</ul>
+<p>モダリティ、テンス、アスペクトで個別に否定を定義しているのは、LL(1)文法の範囲に収めるためである。</p>
+<h2 id="項抽出">項抽出</h2>
+<ul>
+<li><code>ra</code> (動詞のx1を抽出)
+<ul>
+<li>例
+<ul>
+<li><code>ra peheta</code> (食べる人)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>ri</code> (動詞のx2を抽出)
+<ul>
+<li>例
+<ul>
+<li><code>ri peheta</code> (食べ物)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>re</code> (動詞が表す事象そのものを抽出)
+<ul>
+<li>例
+<ul>
+<li><code>re peheta</code> (食べること)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>ru</code> (格標示と組み合わせて、付加詞の項を抽出)
+<ul>
+<li>例
+<ul>
+<li><code>ru suni peheta</code><a href="/editor/?text=ru%20suni%20peheta" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (食べる場所)</li>
+<li><code>ru sudu peheta</code><a href="/editor/?text=ru%20sudu%20peheta" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (食べるための道具)</li>
+<li><code>ru subu peheta</code><a href="/editor/?text=ru%20subu%20peheta" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (一緒に食べる相手)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="節からの抽出">節からの抽出</h3>
+<p>抽出詞の後ろには、動詞の代わりに <code>he … ho</code> で囲んだ節を置ける。</p>
+<ul>
+<li><code>he</code> (節の始まりに置く)</li>
+<li><code>ho</code> (節の終わりに置く)</li>
+</ul>
+<p><code>ra</code>/<code>ri</code>/<code>ru</code> の場合は、節の中で省略した格(<code>ra</code> なら <code>sa</code>、<code>ri</code> なら <code>si</code>、<code>ru suni</code> なら <code>suni</code>)が空所になり、その項が抽出される。<code>re</code> の場合は空所がなく、節が表す事象そのものが抽出される。</p>
+<ul>
+<li>例
+<ul>
+<li><code>ri he peheta sa mi ho</code><a href="/editor/?text=ri%20he%20peheta%20sa%20mi%20ho" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (私が食べる物)</li>
+<li><code>ra he peheta si ri nohapare ho</code><a href="/editor/?text=ra%20he%20peheta%20si%20ri%20nohapare%20ho" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (リンゴを食べる人)</li>
+<li><code>ru suni he hita peheta sa mi si ri nohapare ho</code><a href="/editor/?text=ru%20suni%20he%20hita%20peheta%20sa%20mi%20si%20ri%20nohapare%20ho" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (私がリンゴを食べた場所)</li>
+<li><code>re he hita peheta sa mi si ri nohapare ho</code><a href="/editor/?text=re%20he%20hita%20peheta%20sa%20mi%20si%20ri%20nohapare%20ho" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (私がリンゴを食べたこと)</li>
+</ul>
+</li>
+</ul>
+<p><code>he … ho</code> は節を動詞の位置に置くための括弧であり、それ単独では項にならない。</p>
+<h2 id="型の上書き">型の上書き</h2>
+<ul>
+<li><code>se</code></li>
+</ul>
+<h2 id="代名詞">代名詞</h2>
+<h3 id="人称代名詞">人称代名詞</h3>
+<ul>
+<li><code>mi</code> (私)</li>
+<li><code>ma</code> (あなたを含む私たち)</li>
+<li><code>mu</code> (あなたを含まない私たち)</li>
+<li><code>ba</code> (あなた)</li>
+<li><code>bu</code> (あなたたち)</li>
+<li><code>ga</code> (誰か、単数か複数か指定しない)</li>
+<li><code>gi</code> (彼/彼女)</li>
+<li><code>gu</code> (彼ら)</li>
+</ul>
+<h3 id="指示代名詞">指示代名詞</h3>
+<ul>
+<li><code>me</code> (これ)</li>
+<li><code>be</code> (それ)</li>
+<li><code>ge</code> (あれ)</li>
+</ul>
+<p>指示代名詞は指示物の種類を限定しないため、生物・人工物・その他物理的実体・抽象概念に加えて、空間(<code>suni</code>/<code>sune</code>/<code>suno</code>格の「ここ/そこ/あそこ」)や時間(<code>sugi</code>/<code>suge</code>/<code>sugo</code>格の「いま/そのとき/あのとき」)も指すことができる。</p>
+<h2 id="限定詞">限定詞</h2>
+<ul>
+<li><code>mo</code> (この)</li>
+<li><code>bo</code> (その)</li>
+<li><code>go</code> (あの)</li>
+</ul>
+<h3 id="修飾句の区切り">修飾句の区切り</h3>
+<ul>
+<li><code>di</code> (述語修飾句の前置詞)</li>
+<li><code>du</code> (項修飾句の前置詞。「〜の」に相当する)</li>
+</ul>
+<p><code>du</code> は項抽出句の後ろに置き、関係の基準になる項を添える。「私のパートナー」は <code>ri paparatanera du mi</code><a href="/editor/?text=ri%20paparatanera%20du%20mi" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a>、「床の上」は <code>ri zahona du ri duharora</code><a href="/editor/?text=ri%20zahona%20du%20ri%20duharora" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> になる。どのような関係かは指定せず、文脈に任せる。</p>
+<h2 id="接続詞">接続詞</h2>
+<p>接続詞は2つの節(命題)を関係づける語で、文頭に置く。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>接続詞 hesa [節1] hesi [節2]</span></span>
+<span class="line"><span>接続詞 hesi [節1] hesa [節2]</span></span></code></pre>
+<ul>
+<li><code>hesuteto</code> (原因⇔結果) - <code>hesa</code>側が原因、<code>hesi</code>側が結果</li>
+<li><code>henosuteto</code> (結果⇔反対の原因) - 逆接的な原因を表す(Pなのにもかかわらず(反対の原因により)Q)</li>
+<li><code>hehitatu</code> (時間の前後) - <code>hesa</code>側が前、<code>hesi</code>側が後の時間関係</li>
+<li><code>hehito</code> (直説法条件) - <code>hesa</code>側が成り立つなら<code>hesi</code>側も成り立つ(P→Q)</li>
+<li><code>henohito</code> (反実仮想条件) - もし<code>hesa</code>側が成り立っていたなら<code>hesi</code>側も成り立つ</li>
+<li><code>hehenu</code> (対比) - <code>hesa</code>側は成り立たないが、<code>hesi</code>側は成り立つ</li>
+</ul>
+<h2 id="疑問文マーカー">疑問文マーカー</h2>
+<ul>
+<li><code>ku</code> (文の先頭に置き、疑問文を作る)</li>
+<li><code>ko</code> (格標示の後ろに置き、項を尋ねる疑問文を作る)</li>
+</ul></article><aside class="editor-note" data-astro-cid-vt34qafq>例文は<a href="/editor/" data-astro-cid-vt34qafq>エディタ</a>に入力すると、構文木や診断を確認できます。</aside><nav data-astro-cid-hgp7mnje><a class="prev" href="/posts/language_design/08_morphology_verb_type_theory/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>← 前の記事</span><span data-astro-cid-hgp7mnje>動詞にあたる内容語</span></a><a class="next" href="/posts/language_design/10_number/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>次の記事 →</span><span data-astro-cid-hgp7mnje>数詞</span></a></nav></main><footer class="site-footer" data-astro-cid-hkbrpulz><div class="container" data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>Artificial Language</a></div></footer></body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-hkbrpulz><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="数は無限にあるので、1つ1つに語を割り当てることはできない。自然言語は「一」「十」「百」「千」「万」のような少数の語を組み合わせて数を表している。この言語でも少数の音節の組み合わせで数を表すが、組み合わせ方を機械的な規則に揃え、覚える語をで…"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><title>数詞 | Artificial Language</title><link rel="stylesheet" href="/_astro/_..Bkac0L6S.css"><style>:root{--bg:#fff;--bg-subtle:#f6f7f9;--fg:#1f2328;--fg-muted:#59636e;--border:#d8dee4;--accent:#3b5bdb;--accent-subtle:#edf2ff;--code-bg:#f6f8fa;color-scheme:light}@media (prefers-color-scheme:dark){:root{--bg:#16181d;--bg-subtle:#1e2128;--fg:#e3e6eb;--fg-muted:#9aa3ae;--border:#343a44;--accent:#8ca2ff;--accent-subtle:#222a45;--code-bg:#1e2128;color-scheme:dark}.astro-code,.astro-code span{color:var(--shiki-dark)!important;background-color:var(--shiki-dark-bg)!important}}*,:before,:after{box-sizing:border-box}body{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%;margin:0;font-family:system-ui,-apple-system,Hiragino Sans,Hiragino Kaku Gothic ProN,Noto Sans JP,Yu Gothic,Meiryo,sans-serif;font-size:16px;line-height:1.85}a{color:var(--accent)}.container{max-width:760px;margin:0 auto;padding:0 16px}.prose{overflow-wrap:anywhere}.prose h1{margin:0 0 32px;font-size:1.85rem;line-height:1.4}.prose h2{border-bottom:1px solid var(--border);margin:48px 0 16px;padding-bottom:6px;font-size:1.4rem;line-height:1.4}.prose h3{margin:32px 0 12px;font-size:1.15rem}.prose p,.prose ul,.prose ol{margin:0 0 16px}.prose li>ul,.prose li>ol{margin-bottom:0}.prose code{background:var(--code-bg);border-radius:4px;padding:.15em .35em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.875em}.prose pre{border-radius:6px;margin:0 0 16px;padding:14px 16px;line-height:1.6;overflow-x:auto}.prose pre code{background:0 0;padding:0}.prose blockquote{border-left:4px solid var(--border);color:var(--fg-muted);margin:0 0 16px;padding:0 16px}.prose table{border-collapse:collapse;max-width:100%;margin:0 0 16px;font-size:.9rem;line-height:1.6;display:block;overflow-x:auto}.prose th,.prose td{border:1px solid var(--border);vertical-align:top;padding:6px 12px}.prose th{background:var(--bg-subtle)}.prose a.editor-link,a.editor-link{vertical-align:.1em;border-radius:4px;margin-left:.3em;padding:0 .3em;font-size:.75em;text-decoration:none}.prose a.editor-link:hover,a.editor-link:hover{background:var(--accent-subtle)}.prose .katex-display{padding:4px 0;overflow:auto hidden}.prose .footnotes{color:var(--fg-muted);margin-top:48px;font-size:.875rem}.prose .footnotes h2{border:none;font-size:1rem}.site-header[data-astro-cid-hkbrpulz]{border-bottom:1px solid var(--border)}.header-inner[data-astro-cid-hkbrpulz]{justify-content:space-between;align-items:center;gap:16px;height:56px;display:flex}.site-title[data-astro-cid-hkbrpulz]{color:var(--fg);font-weight:700;text-decoration:none}nav[data-astro-cid-hkbrpulz]{gap:20px;display:flex}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}nav[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]:hover{color:var(--accent)}main[data-astro-cid-hkbrpulz]{padding-top:32px;padding-bottom:64px}.site-footer[data-astro-cid-hkbrpulz]{border-top:1px solid var(--border);padding:24px 0;font-size:.875rem}.site-footer[data-astro-cid-hkbrpulz] a[data-astro-cid-hkbrpulz]{color:var(--fg-muted);text-decoration:none}
+</style></head><body data-astro-cid-hkbrpulz><header class="site-header" data-astro-cid-hkbrpulz><div class="container header-inner" data-astro-cid-hkbrpulz><a class="site-title" href="/" data-astro-cid-hkbrpulz>Artificial Language</a><nav data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>記事</a><a href="/dictionary/" data-astro-cid-hkbrpulz>辞書</a><a href="/editor/" data-astro-cid-hkbrpulz>エディタ</a></nav></div></header><main class="container" data-astro-cid-hkbrpulz><p class="post-series" data-astro-cid-vt34qafq><a href="/" data-astro-cid-vt34qafq>言語設計</a> #10</p><article class="prose" data-astro-cid-vt34qafq><h1 id="数詞">数詞</h1>
+<p>数は無限にあるので、1つ1つに語を割り当てることはできない。自然言語は「一」「十」「百」「千」「万」のような少数の語を組み合わせて数を表している。この言語でも少数の音節の組み合わせで数を表すが、組み合わせ方を機械的な規則に揃え、覚える語をできるだけ減らす。</p>
+<h2 id="数詞のマーカー">数詞のマーカー</h2>
+<p>数詞はすべて <code>tu</code> から始める。量化子は <code>ta</code>/<code>te</code>/<code>ti</code>/<code>to</code> の4つで、<code>t</code> と母音の組み合わせのうち <code>tu</code> だけ未使用である。数詞は量化子と同じく名詞句の数量を表すので、この空いている <code>tu</code> を語の先頭に持ってくる。</p>
+<h2 id="数字テーブル">数字テーブル</h2>
+<p>10進数でも16進数でも表現できる体系にしたい。そこで0〜15の値を、子音 <code>s/k/m/p</code> と母音 <code>o/a/e/i</code> を組み合わせた1音節で表す。値は「子音の行 × 4 + 母音の列」で求まる。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th><code>o</code></th><th><code>a</code></th><th><code>e</code></th><th><code>i</code></th></tr></thead><tbody><tr><td><code>s</code></td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td><code>k</code></td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td><code>m</code></td><td>8</td><td>9</td><td>10</td><td>11</td></tr><tr><td><code>p</code></td><td>12</td><td>13</td><td>14</td><td>15</td></tr></tbody></table>
+<p>たとえば <code>so</code> は0、<code>si</code> は3、<code>ka</code> は5、<code>ma</code> は9になる。10進数で使うのは0〜9(<code>so</code>〜<code>ma</code>)で、10〜15(<code>me</code>〜<code>pi</code>)は後で説明する16進数のためにある。</p>
+<h2 id="桁位置テーブル">桁位置テーブル</h2>
+<p>「十」「百」「千」のように位ごとに別々の語を覚えるのは負担になる。そこで、ある数字が10の何乗の位かを表す音節も、数字テーブルと同じ規則で作った。子音だけを <code>d/g/z/n</code> に替え、母音の並びは数字テーブルと同じ <code>o/a/e/i</code> にする。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th><code>o</code></th><th><code>a</code></th><th><code>e</code></th><th><code>i</code></th></tr></thead><tbody><tr><td><code>d</code></td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td><code>g</code></td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td><code>z</code></td><td>8</td><td>9</td><td>10</td><td>11</td></tr><tr><td><code>n</code></td><td>12</td><td>13</td><td>14</td><td>15</td></tr></tbody></table>
+<p><code>da</code> は10の1乗(十の位)、<code>de</code> は10の2乗(百の位)、<code>di</code> は10の3乗(千の位)を表す。数字テーブルの読み方さえ覚えていれば、新しい語を覚えることなく10の15乗の位まで表せる。</p>
+<h2 id="語の組み立て方">語の組み立て方</h2>
+<p>数詞は次の形をしている。</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tu (数字 桁位置)* [1の位の数字]</span></span></code></pre>
+<ul>
+<li>0でない桁は、数字の音節の直後に桁位置の音節を続ける。</li>
+<li>0の桁は言わない。日本語で1004を「千四」と言い、百の位と十の位の「零」を言わないのと同じである。</li>
+<li>1の位だけは桁位置を付けず、数字だけを言う。</li>
+<li>値が0のときだけ、1の位として <code>so</code> を言う。</li>
+<li>桁は上の位から順に言う。</li>
+</ul>
+<p>例を挙げる。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>値</th><th>数詞</th><th>内訳</th></tr></thead><tbody><tr><td>0</td><td><code>tuso</code></td><td><code>so</code>(0)</td></tr><tr><td>3</td><td><code>tusi</code></td><td><code>si</code>(3)</td></tr><tr><td>10</td><td><code>tusada</code></td><td><code>sa</code>(1)+<code>da</code>(十の位)</td></tr><tr><td>1000</td><td><code>tusadi</code></td><td><code>sa</code>(1)+<code>di</code>(千の位)</td></tr><tr><td>1004</td><td><code>tusadiko</code></td><td><code>sa</code>(1)+<code>di</code>(千の位)、<code>ko</code>(4)</td></tr><tr><td>1234</td><td><code>tusadisedesidako</code></td><td><code>sa di</code>(千)、<code>se de</code>(二百)、<code>si da</code>(三十)、<code>ko</code>(四)</td></tr></tbody></table>
+<p>桁位置を毎回言うので、0でない桁1つにつき2音節かかる。数字を並べるだけの位取り記数法に比べると長くなる。その代わり、桁位置を聞いた時点でその数字がどの位かが確定する。位取り記数法では最後まで聞いて全体の桁数がわかるまで、最初の数字が何の位なのかわからない。この言語の数詞は、途中まで聞いた段階でそこまでの桁を確定して理解できる。</p>
+<h2 id="16進数-ru">16進数: <code>ru</code></h2>
+<p>数字テーブルに10〜15まで用意したのは、16進数も同じ仕組みで言えるようにするためである。<code>tu</code> の直後に <code>ru</code> を置くと16進数として読む。このとき桁位置は16の何乗の位かを表し、各桁には0〜15を使える。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>値</th><th>数詞</th><th>内訳</th></tr></thead><tbody><tr><td>0xFF (=255)</td><td><code>turupidapi</code></td><td><code>pi da</code>(15×16)、<code>pi</code>(15)</td></tr><tr><td>0x1A2 (=418)</td><td><code>turusademedase</code></td><td><code>sa de</code>(1×16²)、<code>me da</code>(10×16)、<code>se</code>(2)</td></tr></tbody></table>
+<p>10進か16進かは <code>ru</code> があるかどうかだけで決まり、桁の値から推測はしない。たとえば <code>tusadase</code> は10進数の12だが、<code>ru</code> を付けた <code>turusadase</code> は16進数の0x12(=18)になる。もし「10以上の数字が含まれていれば16進数」のように推測すると、0〜9しか含まない数が10進なのか16進なのか区別できなくなる。逆に <code>ru</code> がないのに10〜15の数字(<code>me</code>〜<code>pi</code>)を使った語は、不正な数詞として扱う。</p>
+<h2 id="アラビア数字による入力">アラビア数字による入力</h2>
+<p>文章を書くときに毎回数詞を組み立てるのは手間なので、アラビア数字でも書けるようにした。アラビア数字は常に10進数として読む。</p>
+<ul>
+<li><code>12345</code> のように数字をそのまま並べる。</li>
+<li>読みやすさのため、下の位から4桁ごとにアンダースコアで区切ってもよい。<code>1_0000</code>(1万)、<code>1_0000_0000</code>(1億)、<code>1_2345</code> のようになる。</li>
+<li>区切りが4桁ごとになっていない <code>1_000</code> などは不正な表記として扱う。</li>
+</ul>
+<p>これはあくまで入力の手段で、正式な形は <code>tu</code> から始まる数詞である。<code>12345</code> と書いても、読むときは <code>tusagosedisidekodaka</code> と読む。</p>
+<h2 id="文の中での使い方">文の中での使い方</h2>
+<p>数詞は量化子と同じく、項の前に置いて数量を表す。</p>
+<ul>
+<li><code>peheta sa mi si tusi ri nohapare</code><a href="/editor/?text=peheta%20sa%20mi%20si%20tusi%20ri%20nohapare" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (私は3つのリンゴを食べる)</li>
+</ul>
+<p>意味論上は <code>te</code>(多くの)や <code>ti</code>(半分の)と同じく一般化量化子として扱い、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∃</mi><mi mathvariant="normal">#</mi></msub><mi>x</mi><mi mathvariant="normal">.</mi><mo stretchy="false">(</mo><mi mathvariant="normal">∃</mi><mi>e</mi><mi mathvariant="normal">.</mi><mo stretchy="false">(</mo><mtext>nohapare</mtext><mo stretchy="false">(</mo><mi>e</mi><mo stretchy="false">)</mo><mo>∧</mo><mtext>Patient</mtext><mo stretchy="false">(</mo><mi>e</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>∧</mo><mo>…</mo><mtext> </mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\exists_{\#} x.(\exists e.(\text{nohapare}(e) \land \text{Patient}(e, x)) \land \dots)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord">∃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">#</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mopen">(</span><span class="mord">∃</span><span class="mord mathnormal">e</span><span class="mord">.</span><span class="mopen">(</span><span class="mord text"><span class="mord">nohapare</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Patient</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">))</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mclose">)</span></span></span></span> のようになる。数詞と量化子はどちらも項の数量を決めるものなので、1つの項に両方を付けることはできない。<code>tusi to ri nohapare</code><a href="/editor/?text=tusi%20to%20ri%20nohapare" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> のような語順はパースエラーになる。</p>
+<p>日数などを表すときにも使う。</p>
+<ul>
+<li><code>ri zihita du tusa ri zuda</code><a href="/editor/?text=ri%20zihita%20du%20tusa%20ri%20zuda" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (1日前、つまり昨日)</li>
+<li><code>ri zihita du tuke ri zuda</code><a href="/editor/?text=ri%20zihita%20du%20tuke%20ri%20zuda" title="エディタで開く" class="editor-link" aria-label="エディタで開く">▶</a> (6日前)</li>
+</ul>
+<h2 id="その他">その他</h2>
+<p>負の数や小数、分数などの設計はいったん後回しにする。</p></article><aside class="editor-note" data-astro-cid-vt34qafq>例文は<a href="/editor/" data-astro-cid-vt34qafq>エディタ</a>に入力すると、構文木や診断を確認できます。</aside><nav data-astro-cid-hgp7mnje><a class="prev" href="/posts/language_design/09_morphology_function_word/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>← 前の記事</span><span data-astro-cid-hgp7mnje>機能語</span></a><a class="next" href="/posts/language_design/11_proper_noun/" data-astro-cid-hgp7mnje><span class="label" data-astro-cid-hgp7mnje>次の記事 →</span><span data-astro-cid-hgp7mnje>固有名詞</span></a></nav></main><footer class="site-footer" data-astro-cid-hkbrpulz><div class="container" data-astro-cid-hkbrpulz><a href="/" data-astro-cid-hkbrpulz>Artificial Language</a></div></footer></body></html>

@@ -1,1 +1,0 @@
-# tomoris.github.io
