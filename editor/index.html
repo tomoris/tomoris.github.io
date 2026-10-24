@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artificial Language Editor</title>
+    <title>torase Editor</title>
+    <!-- サイトと同じアイコン(public/favicon.svg)。エディタは /editor/ で配信されるので、1つ上を指す -->
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     
 <script type="module">
-import init, * as bindings from './editor-82b2174afd14f2a2.js';
-const wasm = await init({ module_or_path: './editor-82b2174afd14f2a2_bg.wasm' });
+import init, * as bindings from './editor-e63acf19ad6dcf48.js';
+const wasm = await init({ module_or_path: './editor-e63acf19ad6dcf48_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -126,7 +128,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         display: none;
       }
     </style>
-  <link rel="modulepreload" href="./editor-82b2174afd14f2a2.js" crossorigin="anonymous" integrity="sha384-tiFrBF8ru37lhc9sT8ApOpo8aPZasVWQzXJtYULvA81hUKv5xe32d48TZm8iXzp+"><link rel="preload" href="./editor-82b2174afd14f2a2_bg.wasm" crossorigin="anonymous" integrity="sha384-q8d9AA9vroMbzftgk3kPQuKG0STLGYq5EMfOhcmty/a3KcB3avYOod74/kfELcGf" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="./editor-e63acf19ad6dcf48.js" crossorigin="anonymous" integrity="sha384-tiFrBF8ru37lhc9sT8ApOpo8aPZasVWQzXJtYULvA81hUKv5xe32d48TZm8iXzp+"><link rel="preload" href="./editor-e63acf19ad6dcf48_bg.wasm" crossorigin="anonymous" integrity="sha384-QQLmmpIIbpuiQ6MNaa3CfyIUk6BIS7Gpb9tEqBNaUbdPuC1kVNIBrFmTZx1mhPlc" as="fetch" type="application/wasm"></head>
   <body>
     <a id="back" href="../">← 記事一覧</a>
     <textarea
